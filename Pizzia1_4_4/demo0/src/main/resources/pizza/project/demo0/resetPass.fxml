@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pizza.project.demo0.resetPassController">
+    <children>
+        <Button layoutX="264.0" layoutY="263.0" mnemonicParsing="false" onAction="#changePass" prefHeight="51.0" prefWidth="115.0" text="Change Password" />
+        <Button layoutX="508.0" layoutY="342.0" mnemonicParsing="false" onAction="#toLoginPage" prefHeight="44.0" prefWidth="77.0" text="Login" />
+        <TextField fx:id="passOneTxt" layoutX="200.0" layoutY="152.0" prefHeight="27.0" prefWidth="307.0" />
+        <TextField fx:id="pasTwoTxt" layoutX="200.0" layoutY="205.0" prefHeight="27.0" prefWidth="307.0" />
+        <Text layoutX="92.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Password:">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Text>
+        <Text layoutX="69.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password:">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Text>
+      <Text fx:id="messageTxt" layoutX="240.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter New Password" textAlignment="CENTER" textOrigin="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+    </children>
+</AnchorPane>
