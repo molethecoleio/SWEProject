@@ -23,7 +23,7 @@ public class Main extends Application {
         primaryStage.setTitle("Pizza Project - Login Page");
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-        primaryStage.getIcons().add(new Image("File:\\Users\\molet\\Downloads\\Pizzia1_4_4_2\\Pizzia1_4_4\\Pizzia1_4_4\\demo0\\src\\main\\resources\\pizzaIcon.png"));
+        primaryStage.getIcons().add(new Image("File:resources\\pizzaIcon.png"));
         primaryStage.show();
     }
 

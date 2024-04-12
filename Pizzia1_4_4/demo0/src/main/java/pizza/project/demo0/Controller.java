@@ -22,6 +22,8 @@ public class Controller {
 
     private static User currentUser = null;
 
+    private static Addresses currentAddress = null;
+
     @FXML
     private Pane colorDisplayPane;
 
@@ -57,6 +59,11 @@ public class Controller {
         return currentUser;
     }
     void setCurrentUser(User x){currentUser = x;}
+
+    Addresses getCurrentAddress(){
+        return currentAddress;
+    }
+    void setCurrentAddress(Addresses x){currentAddress = x;}
 }
     /*
     @FXML

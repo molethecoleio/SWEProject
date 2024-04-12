@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class newAddressController extends Controller implements Initializable {
+public class editAddressController extends Controller implements Initializable {
 
     @FXML
     private TextField aptTxtField;
@@ -35,22 +35,7 @@ public class newAddressController extends Controller implements Initializable {
     private RadioButton deliveryRadio;
 
     @FXML
-    private Text emailMessage;
-
-    @FXML
-    private Text emailMessage1;
-
-    @FXML
-    private Text emailMessage11;
-
-    @FXML
-    private Text passwordMessage;
-
-    @FXML
     private TextField phoneNumTxtField;
-
-    @FXML
-    private Text repasswordMessage;
 
     @FXML
     private ChoiceBox<String> stateDropDown;
@@ -62,19 +47,31 @@ public class newAddressController extends Controller implements Initializable {
     private Text topMessage;
 
     @FXML
-    private Text usernameMessage;
-
-    @FXML
-    private Text usernameMessage1;
-
-    @FXML
     private TextField zipTxtField;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         stateDropDown.getItems().addAll(states);
-        String[] selectState = {"Select State First"};
         stateDropDown.setOnAction(this::getState);
+
+        streetAddressTxtField.setText(getCurrentAddress().getStreetAddress());
+        aptTxtField.setText(getCurrentAddress().getApartment());
+        stateDropDown.setValue(getCurrentAddress().getState());
+        cityTxtFeild.setText(getCurrentAddress().getCity());
+        zipTxtField.setText(String.valueOf(getCurrentAddress().getZip()));
+        phoneNumTxtField.setText(getCurrentAddress().getPhone());
+
+        int temp = getCurrentAddress().getAddressType();
+
+        if(temp == 1){
+            billingRadio.setSelected(true);
+        }
+        else if(temp == 2){
+            deliveryRadio.setSelected(true);
+        }
+        else{
+            bothRadio.setSelected(true);
+        }
     }
 
     public void getState(ActionEvent event){
@@ -134,7 +131,17 @@ public class newAddressController extends Controller implements Initializable {
             Addresses newAddress = new Addresses(getCurrentUser().getUserID(),addressType,streetAddressTxtField.getText(), aptTxtField.getText(), cityTxtFeild.getText(), stateDropDown.getValue(), Integer.parseInt(zipTxtField.getText()), phoneNumTxtField.getText());
 
             ArrayList<Addresses> addresses = addressLoader.readResponsesFromFile();
+            System.out.println("size before remove: " + addresses.size());
+            //addresses.remove(getCurrentAddress());
 
+
+            for(int x = 0; x < addresses.size(); x++){
+                if(addresses.get(x).getTitle().equals(getCurrentAddress().getTitle())){
+                    addresses.remove(x);
+                }
+            }
+            System.out.println("size after remove: " + addresses.size());
+            setCurrentAddress(newAddress);
             addresses.add(newAddress);
             addressLoader.writeResponseToFile(addresses);
 

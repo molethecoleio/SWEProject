@@ -3,7 +3,7 @@ package pizza.project.demo0;
 public class Addresses {
 
     int ownerID;
-    private int isBillingAddress;
+    private int addressType;
     private String streetAddress;
     private String apartment;
     private String city;
@@ -11,9 +11,9 @@ public class Addresses {
     private int zip;
     private String phone;
 
-    Addresses(int ownerID, int isBillingAddress, String streetAddress, String apartment, String city, String state, int zip, String phone){
+    Addresses(int ownerID, int addressType, String streetAddress, String apartment, String city, String state, int zip, String phone){
         this.ownerID = ownerID;
-        this.isBillingAddress = isBillingAddress;
+        this.addressType = addressType;
         this.streetAddress = streetAddress;
         this.apartment = apartment;
         this.city = city;
@@ -22,12 +22,12 @@ public class Addresses {
         this.phone = phone;
     }
 
-    public int isBillingAddress() {
-        return isBillingAddress;
+    public int getAddressType() {
+        return addressType;
     }
 
-    public void setBillingAddress(int billingAddress) {
-        isBillingAddress = billingAddress;
+    public void setAddressType(int billingAddress) {
+        addressType = billingAddress;
     }
 
     public String getStreetAddress() {
@@ -82,12 +82,16 @@ public class Addresses {
     public String toString() {
         // Replace natural commas with full-width commas before writing to file
         return ownerID + "," +
-                isBillingAddress + "," +
+                addressType + "," +
                 streetAddress.replace(",", "，") + "," +
                 apartment.replace(",", "，") + "," +
                 city.replace(",", "，") + "," +
                 state.replace(",", "，") + "," +
                 zip + "," +
                 phone.replace(",", "，");
+    }
+
+    public String getTitle(){
+        return streetAddress  + " " + apartment + ", " + city + ", " + state + ", " + zip;
     }
 }
