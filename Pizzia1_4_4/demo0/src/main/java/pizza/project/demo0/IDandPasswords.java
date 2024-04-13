@@ -40,7 +40,7 @@ public class IDandPasswords {
      * @return the login information hashmap
      */
     protected static ArrayList<User> getLoginInfo(){
-        System.out.println("getting users");
+        //System.out.println("getting users");
         /*
         for(User x: users){
             System.out.println(x);

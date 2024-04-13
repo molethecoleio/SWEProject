@@ -24,6 +24,8 @@ public class Controller {
 
     private static Addresses currentAddress = null;
 
+    private static Question currentQuestion = null;
+
     @FXML
     private Pane colorDisplayPane;
 
@@ -63,7 +65,10 @@ public class Controller {
     Addresses getCurrentAddress(){
         return currentAddress;
     }
-    void setCurrentAddress(Addresses x){currentAddress = x;}
+    void setCurrentAddress(Addresses x){ currentAddress = x; }
+
+    Question getCurrentQuestion(){ return currentQuestion; }
+    void setCurrentQuestion(Question x){ currentQuestion = x; }
 }
     /*
     @FXML
