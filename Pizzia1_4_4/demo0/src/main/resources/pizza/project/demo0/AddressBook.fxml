@@ -21,6 +21,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
+            <Button fx:id="undoDeleteButton" disable="true" layoutX="477.0" layoutY="245.0" mnemonicParsing="false" onAction="#undoDelete" prefHeight="52.0" prefWidth="91.0" text="Undo Delete" />
          </children></Pane>
     </children>
 </AnchorPane>

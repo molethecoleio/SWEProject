@@ -3,9 +3,14 @@ package pizza.project.demo0;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
@@ -44,13 +49,51 @@ public class editAddressController extends Controller implements Initializable {
     private TextField streetAddressTxtField;
 
     @FXML
-    private Text topMessage;
+    private Label topMessage;
 
     @FXML
     private TextField zipTxtField;
 
+    @FXML
+    private Text labelApt;
+
+    @FXML
+    private Text labelCity;
+
+    @FXML
+    private Text labelOptional;
+
+    @FXML
+    private Text labelPhoneNum;
+
+    @FXML
+    private Text labelState;
+
+    @FXML
+    private Text labelStreet;
+
+    @FXML
+    private Text labelZip;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        colorDisplayPane.setBackground(new Background(new BackgroundFill(getCurrentUser().getBGcolor(), CornerRadii.EMPTY, Insets.EMPTY)));
+
+        topMessage.setTextFill(getCurrentUser().getFontcolor());
+        labelZip.setFill(getCurrentUser().getFontcolor());
+        labelStreet.setFill(getCurrentUser().getFontcolor());
+        labelState.setFill(getCurrentUser().getFontcolor());
+        labelPhoneNum.setFill(getCurrentUser().getFontcolor());
+        labelOptional.setFill(getCurrentUser().getFontcolor());
+        labelCity.setFill(getCurrentUser().getFontcolor());
+        labelApt.setFill(getCurrentUser().getFontcolor());
+
+        billingRadio.setTextFill(getCurrentUser().getFontcolor());
+        deliveryRadio.setTextFill(getCurrentUser().getFontcolor());
+        bothRadio.setTextFill(getCurrentUser().getFontcolor());
+
         stateDropDown.getItems().addAll(states);
         stateDropDown.setOnAction(this::getState);
 

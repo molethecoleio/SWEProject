@@ -33,8 +33,16 @@ public class addressBookController extends Controller implements Initializable {
     @FXML
     private Label topLabel;
 
+    @FXML
+    private Button undoDeleteButton;
+
+    private Addresses undoDeleteAddress;
+
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        topLabel.setTextFill(getCurrentUser().getFontcolor());
         colorDisplayPane.setBackground(new Background(new BackgroundFill(getCurrentUser().getBGcolor(), CornerRadii.EMPTY, Insets.EMPTY)));
         ArrayList<Addresses> addresses = addressLoader.readResponsesFromFile();
         System.out.println("after after: " + addresses.size());
@@ -62,18 +70,43 @@ public class addressBookController extends Controller implements Initializable {
 
     @FXML
     void delete(ActionEvent event) {
-        ArrayList<Addresses> newAddresses = addressLoader.readResponsesFromFile();
-        Iterator<Addresses> iterator = newAddresses.iterator();
-        while (iterator.hasNext()) {
-            Addresses address = iterator.next();
-            if (address.getTitle().equals(selectedAddressString)) {
-                iterator.remove();  // Use iterator's remove method
-            }
+        if(selectedAddressString.equals("")){
+            topLabel.setText("Click on address to delete first");
         }
+        else {
+            ArrayList<Addresses> newAddresses = addressLoader.readResponsesFromFile();
+
+            for (Addresses address : newAddresses) {
+                if (address.getTitle().equals(selectedAddressString)) {
+                    undoDeleteAddress = address;
+                }
+            }
+            Iterator<Addresses> iterator = newAddresses.iterator();
+            while (iterator.hasNext()) {
+                Addresses address = iterator.next();
+                if (address.getTitle().equals(selectedAddressString)) {
+                    iterator.remove();  // Use iterator's remove method
+                }
+            }
+
+            addressLoader.writeResponseToFile(newAddresses);
+
+            fillListWithArrayList(newAddresses);
+            undoDeleteButton.setDisable(false);
+            selectedAddressString = "";
+        }
+    }
+
+    @FXML
+    void undoDelete(ActionEvent event) {
+        ArrayList<Addresses> newAddresses = addressLoader.readResponsesFromFile();
+        newAddresses.add(undoDeleteAddress);
 
         addressLoader.writeResponseToFile(newAddresses);
-
         fillListWithArrayList(newAddresses);
+
+
+        undoDeleteButton.setDisable(true);
     }
 
     @FXML
