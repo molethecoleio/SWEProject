@@ -45,8 +45,14 @@ public class addressBookController extends Controller implements Initializable {
         topLabel.setTextFill(getCurrentUser().getFontcolor());
         colorDisplayPane.setBackground(new Background(new BackgroundFill(getCurrentUser().getBGcolor(), CornerRadii.EMPTY, Insets.EMPTY)));
         ArrayList<Addresses> addresses = addressLoader.readResponsesFromFile();
-        System.out.println("after after: " + addresses.size());
-        fillListWithArrayList(addresses);
+        ArrayList<Addresses> filteredAddresses = new ArrayList<>();
+        for (Addresses newAddress : addresses){
+            if(newAddress.getOwnerID() == getCurrentUser().getUserID()){
+                filteredAddresses.add(newAddress);
+            }
+        }
+        System.out.println("after after: " + filteredAddresses.size());
+        fillListWithArrayList(filteredAddresses);
         listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {

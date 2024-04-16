@@ -10,10 +10,10 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pizza.project.demo0.loginController">
     <children>
-        <Button layoutX="256.0" layoutY="237.0" mnemonicParsing="false" onAction="#testLogin" prefHeight="51.0" prefWidth="87.0" text="Login" />
-        <Button layoutX="508.0" layoutY="343.0" mnemonicParsing="false" onAction="#toSignupPage" prefHeight="44.0" prefWidth="77.0" text="Signup" />
         <TextField fx:id="usernameTxtField" layoutX="163.0" layoutY="109.0" prefHeight="27.0" prefWidth="307.0" />
         <TextField fx:id="passwordTxtField" layoutX="162.0" layoutY="172.0" prefHeight="27.0" prefWidth="307.0" />
+        <Button layoutX="256.0" layoutY="237.0" mnemonicParsing="false" onAction="#testLogin" prefHeight="51.0" prefWidth="87.0" text="Login" />
+        <Button layoutX="508.0" layoutY="343.0" mnemonicParsing="false" onAction="#toSignupPage" prefHeight="44.0" prefWidth="77.0" text="Signup" />
         <Text layoutX="83.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:">
             <font>
                 <Font size="15.0" />

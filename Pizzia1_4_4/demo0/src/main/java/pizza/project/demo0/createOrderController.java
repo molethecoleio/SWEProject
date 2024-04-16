@@ -22,8 +22,8 @@ public class createOrderController extends Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         customPizzaLabel.setText("Custom Order \n$8.99");
-        System.out.println("wprking");
-        //System.out.println(pizzaLoader.readPizzaFromFile().toString());
+        System.out.println("working");
+        System.out.println(pizzaLoader.readPizzaFromFile().toString());
     }
 
 }

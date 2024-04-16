@@ -2,64 +2,83 @@ package pizza.project.demo0;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-
+import javafx.scene.paint.Paint;
+import javafx.scene.text.Text;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javafx.scene.paint.Paint;
-import javafx.scene.text.Text;
-
+/**
+ * Controller class for handling the password recovery process.
+ */
 public class forgotPassController extends Controller {
 
     @FXML
-    private TextField emailTxtField;
-
-
-    @FXML
-    private TextField usernameTxtField;
-
+    private TextField emailTxtField; // Text field for user's email input.
 
     @FXML
-    private Text errorTxt;
+    private TextField usernameTxtField; // Text field for user's username input.
 
-    private ArrayList<User> loginInfo;
+    @FXML
+    private Label errorTxt; // Text field for displaying error messages.
 
+    private ArrayList<User> loginInfo; // List storing login information of all users.
+
+    /**
+     * Constructor initializes login information from IDandPasswords class.
+     */
     public forgotPassController() {
-        // Initialize loginInfo with the HashMap from IDandPasswords class
         this.loginInfo = IDandPasswords.getLoginInfo();
     }
 
+    /**
+     * Attempts to recover the password for the user based on email and username provided.
+     * Redirects to reset password page if credentials are found, otherwise shows error.
+     *
+     * @param event the event that triggered this method
+     * @throws IOException if an input/output error occurs
+     */
     @FXML
     void recoverPassword(ActionEvent event) throws IOException {
-        boolean bool = false;
-        for (User x: loginInfo) {
-            if(x.getEmail().equals(emailTxtField.getText()) && x.getUsername().equals(usernameTxtField.getText())){
-                bool = true;
-                placeHolder = "forgotPass";
-                setCurrentUser(x);
-                toDefault(event,"oneTimePin.fxml", "One Time Pin");
+        boolean found = false;
+        if (emailTxtField.getText().isEmpty()) {
+            errorTxt.setTextFill(Paint.valueOf("red"));
+            errorTxt.setText("Email Is Empty");
+            resetTxtFields();
+        } else {
+            for (User user : loginInfo) {
+                if (user.getEmail().equals(emailTxtField.getText()) && user.getUsername().equals(usernameTxtField.getText())) {
+                    found = true;
+                    setCurrentUser(user);
+                    toDefault(event, "resetPass.fxml", "Reset Password Page");
+                }
             }
         }
-        if(!bool){
-            errorTxt.setFill(Paint.valueOf("red"));
+
+        if (!found) {
+            errorTxt.setTextFill(Paint.valueOf("red"));
             errorTxt.setText("Email or Username Not Found");
-            resetTxtFeilds();
+            resetTxtFields();
         }
     }
 
-    void resetTxtFeilds(){
+    /**
+     * Clears all text fields in the form.
+     */
+    void resetTxtFields() {
         emailTxtField.setText("");
         usernameTxtField.setText("");
     }
 
+    /**
+     * Redirects the user to the login page.
+     *
+     * @param event the event that triggered this method
+     * @throws IOException if an input/output error occurs
+     */
     @FXML
     void toLoginPage(ActionEvent event) throws IOException {
         toDefault(event, "login.fxml", "Login Page");
-    }
-
-    @FXML
-    void toOneTimePin(ActionEvent event) throws IOException {
-        toDefault(event, "oneTimePin.fxml", "OTP Page");
     }
 }

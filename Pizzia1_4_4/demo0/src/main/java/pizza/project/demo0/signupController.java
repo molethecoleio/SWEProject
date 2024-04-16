@@ -2,103 +2,138 @@ package pizza.project.demo0;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class signupController extends Controller{
+/**
+ * Controller class for handling the sign-up functionality of the application.
+ */
+public class signupController extends Controller {
 
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+    @FXML
+    private TextField emailTxtField; // TextField for user email input.
 
-    private ArrayList<User> loginInfo;
+    @FXML
+    private TextField confirmPasswordTxtField; // TextField for confirming the password.
 
+    @FXML
+    private TextField passwordTxtField; // TextField for user password input.
+
+    @FXML
+    private TextField usernameTxtField; // TextField for user username input.
+
+    @FXML
+    private Text errorsTxt; // Text display for showing error messages.
+
+    private ArrayList<User> loginInfo; // List of user credentials.
+
+    /**
+     * Constructor that initializes the login information from stored data.
+     */
     public signupController() {
-        // Initialize loginInfo with the HashMap from IDandPasswords class
         this.loginInfo = IDandPasswords.getLoginInfo();
     }
 
-
-    @FXML
-    private TextField emailTxtFeild;
-
-    @FXML
-    private TextField confirmPasswordTxtField;
-
-    @FXML
-    private Text errorsTxt;
-
-    @FXML
-    private TextField passwordTxtField;
-
-    @FXML
-    private TextField usernameTxtField;
-
-
-    @FXML
-    public void toDefault(ActionEvent event, String fileName, String title) throws IOException {
-        root = FXMLLoader.load(getClass().getResource(fileName));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Pizza Project - " + title);
-        stage.show();
-    }
-
+    /**
+     * Attempts to sign up a new user with the information provided in the form.
+     * Redirects to the menu page upon successful sign-up.
+     *
+     * @param event the event that triggered this method
+     * @throws IOException if an input/output error occurs
+     */
     @FXML
     void Signup(ActionEvent event) throws IOException {
-        boolean checker = false;
-        for (User x: loginInfo) {
-            if(x.getEmail().equals(emailTxtFeild.getText())){
-                checker = true;
-                errorsTxt.setText("Email being used on a different account");
+        if (!validateFields()) {
+            resetTxtFields();
+            return;
+        }
+
+        User newUser = new User(usernameTxtField.getText(), passwordTxtField.getText(), emailTxtField.getText(), Color.LIGHTGRAY, Color.BLACK);
+        setCurrentUser(newUser);
+        loginInfo.add(newUser);
+        System.out.println("New User Being added, User Data: " + newUser);
+        IDandPasswords.writeUserToFile("database.txt", newUser);
+        toMenu(event);
+    }
+
+    /**
+     * Validates all input fields for new user registration.
+     * Sets error messages and returns false if any validation fails.
+     *
+     * @return true if all fields are valid, false otherwise
+     */
+    private boolean validateFields() {
+        if (emailTxtField.getText().isEmpty() || !emailTxtField.getText().contains("@") || !emailTxtField.getText().contains(".") || emailTxtField.getText().indexOf('@') > emailTxtField.getText().indexOf('.')) {
+            errorsTxt.setText("Invalid Email Format");
+            errorsTxt.setFill(Paint.valueOf("Red"));
+            return false;
+        }
+
+        if (usernameTxtField.getText().isEmpty()) {
+            errorsTxt.setText("Username Is Empty");
+            errorsTxt.setFill(Paint.valueOf("Red"));
+            return false;
+        }
+
+        if (passwordTxtField.getText().isEmpty()) {
+            errorsTxt.setText("Password is Empty");
+            errorsTxt.setFill(Paint.valueOf("Red"));
+            resetTxtFields();
+            return false;
+        }
+
+        if (!passwordTxtField.getText().equals(confirmPasswordTxtField.getText())) {
+            errorsTxt.setText("Passwords Must Match");
+            errorsTxt.setFill(Paint.valueOf("Red"));
+
+            return false;
+        }
+
+        for (User user : loginInfo) {
+            if (user.getEmail().equals(emailTxtField.getText())) {
+                errorsTxt.setText("Email already in use");
                 errorsTxt.setFill(Paint.valueOf("Red"));
-                resetTxtFeilds();
+                return false;
             }
         }
-        if(!confirmPasswordTxtField.getText().equals(passwordTxtField.getText())){
-            errorsTxt.setText("Passwords Dont Match");
-            errorsTxt.setFill(Paint.valueOf("Red"));
-            resetTxtFeilds();
-        }
-        else if(!checker){
-            errorsTxt.setText("Account Made Go To Login Screen.");
-            errorsTxt.setFill(Paint.valueOf("Black"));
-            Color white = Color.WHITE;
-            Color black = Color.BLACK;
-            User newUser = new User(usernameTxtField.getText(), passwordTxtField.getText(), emailTxtFeild.getText(), white, black);
-            setCurrentUser(newUser);
-            loginInfo.add(newUser);
-            System.out.println("New User Being added, User Data: " + newUser);
-            IDandPasswords.writeUserToFile("database.txt", newUser);
-            toMenu(event);
-        }
-     }
 
+        resetTxtFields();
+        return true;
+    }
+
+    /**
+     * Clears all text fields.
+     */
+    void resetTxtFields() {
+        emailTxtField.setText("");
+        usernameTxtField.setText("");
+        passwordTxtField.setText("");
+        confirmPasswordTxtField.setText("");
+    }
+
+    /**
+     * Redirects to the menu page.
+     *
+     * @param event the event that triggered this method
+     * @throws IOException if an input/output error occurs
+     */
+    void toMenu(ActionEvent event) throws IOException {
+        toDefault(event, "menu.fxml", "Menu Page");
+    }
+
+    /**
+     * Redirects to the login page.
+     *
+     * @param event the event that triggered this method
+     * @throws IOException if an input/output error occurs
+     */
     @FXML
     void toLoginPage(ActionEvent event) throws IOException {
         toDefault(event, "login.fxml", "Login Page");
     }
 
-    @FXML
-    void toMenu(ActionEvent event) throws IOException {
-        toDefault(event, "menu.fxml", "Menu Page");
-        //welcomeUser.setVisible(false);
-    }
-
-    void resetTxtFeilds(){
-        emailTxtFeild.setText("");
-        usernameTxtField.setText("");
-        passwordTxtField.setText("");
-    }
 }

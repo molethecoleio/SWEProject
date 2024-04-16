@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -35,9 +36,12 @@
                   <Font size="15.0" />
                </font>
             </Text>
-            <RadioButton fx:id="billingRadio" layoutX="137.0" layoutY="308.0" mnemonicParsing="false" text="Billing Address" />
-            <RadioButton fx:id="deliveryRadio" layoutX="263.0" layoutY="309.0" mnemonicParsing="false" text="Delivery Address" />
-            <RadioButton fx:id="bothRadio" layoutX="398.0" layoutY="308.0" mnemonicParsing="false" text="Both" />
+            <RadioButton fx:id="billingRadio" layoutX="137.0" layoutY="308.0" mnemonicParsing="false" text="Billing Address">
+               <toggleGroup>
+                  <ToggleGroup fx:id="addresses" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="deliveryRadio" layoutX="263.0" layoutY="309.0" mnemonicParsing="false" text="Delivery Address" toggleGroup="$addresses" />
+            <RadioButton fx:id="bothRadio" layoutX="398.0" layoutY="308.0" mnemonicParsing="false" text="Both" toggleGroup="$addresses" />
             <Button layoutX="342.0" layoutY="342.0" mnemonicParsing="false" onAction="#cancel" prefHeight="44.0" prefWidth="77.0" text="Cancel" />
             <Button layoutX="509.0" layoutY="343.0" mnemonicParsing="false" onAction="#toMenuPage" prefHeight="44.0" prefWidth="77.0" text="Menu" />
             <Label fx:id="topMessage" alignment="CENTER" layoutX="1.0" layoutY="3.0" prefHeight="38.0" prefWidth="594.0" text="Label">
