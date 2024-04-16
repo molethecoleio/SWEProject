@@ -48,8 +48,8 @@ public class menuController extends Controller implements Initializable {
     }
 
     @FXML
-    void toCreateOrder(ActionEvent event) {
-
+    void toCreateOrder(ActionEvent event) throws IOException {
+        toDefault(event, "createOrder.fxml", "Create Order Page");
     }
 
     @FXML
