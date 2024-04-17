@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Main extends Application {
@@ -32,6 +33,12 @@ public class Main extends Application {
 
         //loads the passwords into the system
         IDandPasswords idandPasswords = new IDandPasswords();
+        CardLoader cardLoader = new CardLoader("Cards.txt");
+
+        Cards card = new Cards(11,88292982,11,2025,1234,"Cole K", "Visa");
+        List<Cards> cardsList = new ArrayList<>();
+        cardsList.add(card);
+        cardLoader.writeCards(cardsList);
 
         //feed direct file path or it will make its own file
         String fileName = "database.txt";
