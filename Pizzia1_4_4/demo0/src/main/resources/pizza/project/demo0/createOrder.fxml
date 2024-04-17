@@ -4,18 +4,19 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="564.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pizza.project.demo0.createOrderController">
    <children>
-      <Label layoutX="14.0" layoutY="30.0" prefHeight="26.0" prefWidth="58.0" text="Pizza">
+      <Pane fx:id="colorDisplayPane" prefHeight="564.0" prefWidth="600.0" />
+      <Label fx:id="pizzaLabel" layoutX="14.0" layoutY="30.0" prefHeight="26.0" prefWidth="58.0" text="Pizza">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Button layoutX="13.0" layoutY="62.0" mnemonicParsing="false" onAction="#printOut" prefHeight="37.0" prefWidth="172.0">
+      <Button layoutX="13.0" layoutY="62.0" mnemonicParsing="false" onAction="#createPizza" prefHeight="37.0" prefWidth="172.0">
          <graphic>
             <VBox prefHeight="32.0" prefWidth="156.0">
                <children>
@@ -29,7 +30,7 @@
             </VBox>
          </graphic>
       </Button>
-      <Label layoutX="14.0" layoutY="106.0" prefHeight="18.0" prefWidth="172.0" text="Specialty Pizzas">
+      <Label fx:id="specialPizzaLabel" layoutX="14.0" layoutY="106.0" prefHeight="18.0" prefWidth="172.0" text="Specialty Pizzas">
          <font>
             <Font size="22.0" />
          </font>
@@ -62,7 +63,7 @@
             </VBox>
          </graphic>
       </Button>
-      <Label layoutX="10.0" layoutY="369.0" prefHeight="18.0" prefWidth="172.0" text="Drinks">
+      <Label fx:id="drinksLabel" layoutX="10.0" layoutY="369.0" prefHeight="18.0" prefWidth="172.0" text="Drinks">
          <font>
             <Font size="22.0" />
          </font>
@@ -165,8 +166,8 @@
             </VBox>
          </graphic>
       </Button>
-      <ListView layoutX="393.0" layoutY="78.0" prefHeight="480.0" prefWidth="200.0" />
-      <Button layoutX="7.0" layoutY="520.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="78.0" text="Menu" />
-      <Button layoutX="293.0" layoutY="520.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="97.0" text="Restart Order" />
+      <ListView fx:id="listView" layoutX="393.0" layoutY="78.0" prefHeight="480.0" prefWidth="200.0" />
+      <Button layoutX="7.0" layoutY="516.0" mnemonicParsing="false" onAction="#toMenu" prefHeight="42.0" prefWidth="78.0" text="Menu" />
+      <Button layoutX="293.0" layoutY="516.0" mnemonicParsing="false" onAction="#restartOrder" prefHeight="42.0" prefWidth="97.0" text="Restart Order" />
    </children>
 </AnchorPane>

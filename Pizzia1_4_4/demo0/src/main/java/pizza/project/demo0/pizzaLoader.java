@@ -1,49 +1,107 @@
 package pizza.project.demo0;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
+/**
+ * This class handles the operations related to storing and retrieving pizza
+ * objects from files. It provides functionality to write pizza details and toppings
+ * into separate files and to read them back into pizza objects.
+ */
 public class pizzaLoader {
+
+    /**
+     * Writes the details of a given pizza to a file. This includes the pizza's size, crust, and ID.
+     * Toppings are written to a separate file.
+     *
+     * @param myPizza The pizza object to write to file.
+     */
     public static void writePizzaToFile(pizza myPizza) {
-        try (FileWriter writer = new FileWriter("temp.txt")) {
-            String toppings = String.join(", ", myPizza.toppings);
-            writer.append(String.format("%s,%s,\"%s\",%.2f\n", myPizza.size, myPizza.crust, toppings, myPizza.price));
-            writer.flush();
+        try (FileWriter writer = new FileWriter("temp.txt", true)) {
+            writer.append(String.format("%s,%s,%s\n", myPizza.getSize(), myPizza.getCrust(), myPizza.getPizzaId()));
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
 
-    public static pizza readPizzaFromFile() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("temp.txt"))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] data = line.split(",");
-                String size = data[0].trim();
-                String crust = data[1].trim();
-                // Correctly parsing the toppings, assuming they are enclosed in quotes
-                String toppingsLine = data[2].replaceAll("^\"|\"$", ""); // Remove surrounding quotes
-                List<String> toppings = Arrays.asList(toppingsLine.split(",\\s*"));
-                //double price = Double.parseDouble(data[3].trim());
-
-                byte sizeByte = getSizeByteFromString(size);
-                byte crustByte = getCrustByteFromString(crust);
-
-                pizza myPizza = new pizza(sizeByte, crustByte, new ArrayList<>(toppings));
-                System.out.println(myPizza);
-                return myPizza;
+        try (FileWriter writer = new FileWriter("toppings.txt", true)) {
+            if (myPizza.getToppings().isEmpty()) {
+                writer.append(String.format("%d,\n", myPizza.getPizzaId())); // Ensure even pizzas with no toppings are correctly formatted
+            } else {
+                writer.append(String.format("%d,%s\n", myPizza.getPizzaId(), String.join(",", myPizza.getToppings())));
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
     }
 
+    /**
+     * Reads the stored pizza objects from the file 'temp.txt' and constructs
+     * pizza objects from the data.
+     *
+     * @return An ArrayList containing the reconstructed pizza objects.
+     */
+    public static ArrayList<pizza> readPizzaFromFile() {
+        ArrayList<pizza> pizzas = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader("temp.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] data = line.split(",");
+                int pizzaId = Integer.parseInt(data[2].trim());
+                ArrayList<String> toppings = readToppings(pizzaId);
+                byte sizeByte = getSizeByteFromString(data[0].trim());
+                byte crustByte = getCrustByteFromString(data[1].trim());
+                pizzas.add(new pizza(sizeByte, crustByte, toppings, pizzaId));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return pizzas;
+    }
+
+    /**
+     * Reads the toppings associated with a specific pizza ID from 'toppings.txt'.
+     *
+     * @param pizzaId The ID of the pizza for which toppings need to be read.
+     * @return An ArrayList of strings representing the toppings of the pizza.
+     * @throws IOException If an I/O error occurs during file reading.
+     */
+    private static ArrayList<String> readToppings(int pizzaId) throws IOException {
+        ArrayList<String> toppings = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader("toppings.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] data = line.split(",");
+                if (Integer.parseInt(data[0]) == pizzaId) {
+                    if (data.length > 1 && !data[1].trim().isEmpty()) {
+                        toppings.addAll(Arrays.asList(data).subList(1, data.length));
+                    }
+                    break;
+                }
+            }
+        }
+        return toppings;
+    }
+
+    /**
+     * Clears the content of a specified file by overwriting it.
+     *
+     * @param filePath The path of the file to be wiped.
+     */
+    public static void wipeFile(String filePath) {
+        try (FileWriter writer = new FileWriter(filePath, false)) {
+            writer.write("");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Converts a string representation of a pizza size to its corresponding byte code.
+     *
+     * @param size The string representation of the size.
+     * @return The byte code for the given pizza size.
+     */
     private static byte getSizeByteFromString(String size) {
         switch (size) {
             case "Small": return 0;
@@ -54,6 +112,12 @@ public class pizzaLoader {
         }
     }
 
+    /**
+     * Converts a string representation of a pizza crust type to its corresponding byte code.
+     *
+     * @param crust The string representation of the crust.
+     * @return The byte code for the given crust type.
+     */
     private static byte getCrustByteFromString(String crust) {
         switch (crust) {
             case "Thin Crust": return 0;

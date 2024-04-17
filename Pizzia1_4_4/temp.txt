@@ -1,1 +1,3 @@
-Small,Thin Crust,"Beef, Feda Cheese, Ham, Pepperoni, Sausage",13.99
+Small,Thin Crust,4608477
+Small,Thin Crust,9986942
+Small,Thin Crust,8270674

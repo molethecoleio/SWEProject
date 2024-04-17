@@ -17,6 +17,10 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.scene.input.MouseEvent;
 
+/**
+ * Controller for building and customizing pizzas in a pizza ordering application.
+ */
+
 public class pizzaBuilderController extends Controller implements Initializable {
 
     @FXML
@@ -150,6 +154,12 @@ public class pizzaBuilderController extends Controller implements Initializable 
     private String[] toppingTitles;
 
     private pizza currentPizza;
+
+    /**
+     * Initializes the controller. This method sets up UI components based on user settings and adds toppings.
+     * @param url The location used to resolve relative paths for the root object, or null if unknown.
+     * @param resourceBundle The resources used to localize the root object, or null.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Adding the default topping
@@ -213,18 +223,63 @@ public class pizzaBuilderController extends Controller implements Initializable 
 
     }
 
+    /**
+     * Handles the event to cancel pizza creation and return to the main order screen.
+     * @param event The action event triggered by user interaction.
+     * @throws IOException if an error occurs during navigation.
+     */
     @FXML
     void cancelPizza(ActionEvent event) throws IOException {
         toDefault(event, "createOrder.fxml", "Order Builder");
     }
 
+    /**
+     * Handles saving the currently built pizza to a file. Checks for null to ensure a pizza has been created.
+     * @param event The action event triggered by user interaction.
+     * @throws IOException if an error occurs during file operations.
+     */
     @FXML
     void savePizza(ActionEvent event) throws IOException {
+        if(currentPizza == null){
+            byte size = 0;
+            if(sizeMedium.isSelected()){
+                size = 1;
+            } else if (sizeLarge.isSelected()) {
+                size = 2;
+            }else if (sizeExLarge.isSelected()) {
+                size = 3;
+            }else if (sizeBigBoi.isSelected()) {
+                size = 4;
+            }
+
+            byte crust = 0;
+            if(crustThick.isSelected()){
+                crust = 1;
+            } else if(crustStuffed.isSelected()){
+                crust = 2;
+            }else if(crustGarlic.isSelected()){
+                crust = 3;
+            }else if(crustNoGluten.isSelected()){
+                crust = 4;
+            }
+
+            ArrayList<String> stringToppings = new ArrayList<>();
+            for(RadioButton radio : toppings){
+                if(radio.isSelected()){
+                    stringToppings.add(radio.getText().substring(0,radio.getText().indexOf("+")));
+                }
+            }
+            currentPizza = pizza.createNewPizza(size, crust, stringToppings, pizzaLoader.readPizzaFromFile());
+        }
         pizzaLoader.writePizzaToFile(currentPizza);
         toDefault(event, "createOrder.fxml", "Order Builder");
     }
 
-
+    /**
+     * Listens for changes to the size selection and updates the UI and pizza configuration accordingly.
+     * @param event The mouse event triggered by user interaction.
+     * @return A byte value representing the selected size.
+     */
     @FXML
     byte sizeChange(MouseEvent event) {
         byte x1 = 0;
@@ -253,16 +308,26 @@ public class pizzaBuilderController extends Controller implements Initializable 
         return x1;
     }
 
+    /**
+     * Calculates and updates the price of the current pizza based on selections.
+     * @param event The mouse event triggered by user interaction.
+     * @return The calculated price of the pizza.
+     */
     @FXML
     double calcPrice(MouseEvent event) {
         buildPizza(event);
-        double price = currentPizza.price;
+        double price = currentPizza.getPrice();
         //System.out.println("Price = " + price);
         String priceTxt = "Pizza Price: " + price;
         priceLabel.setText(priceTxt);
         return price;
     }
 
+
+    /**
+     * Constructs a pizza object based on user-selected options for size, crust, and toppings.
+     * @param event The mouse event triggered by user interaction.
+     */
     void buildPizza(MouseEvent event){
         byte size = 0;
         if(sizeMedium.isSelected()){
@@ -292,6 +357,6 @@ public class pizzaBuilderController extends Controller implements Initializable 
                 stringToppings.add(radio.getText().substring(0,radio.getText().indexOf("+")-1));
             }
         }
-        currentPizza = new pizza(size, crust, stringToppings);
+        currentPizza = pizza.createNewPizza(size, crust, stringToppings, pizzaLoader.readPizzaFromFile());
     }
 }
