@@ -15,7 +15,7 @@
             <Button layoutX="523.0" layoutY="353.0" mnemonicParsing="false" onAction="#toMenu" prefHeight="38.0" prefWidth="67.0" text="Menu" />
             <Button layoutX="183.0" layoutY="354.0" mnemonicParsing="false" onAction="#edit" prefHeight="38.0" prefWidth="67.0" text="Edit" />
             <Button layoutX="383.0" layoutY="354.0" mnemonicParsing="false" onAction="#delete" prefHeight="38.0" prefWidth="67.0" text="Delete" />
-            <Button layoutX="271.0" layoutY="354.0" mnemonicParsing="false" onAction="#addAddress" prefHeight="38.0" prefWidth="91.0" text="Add Address" />
+            <Button layoutX="271.0" layoutY="354.0" mnemonicParsing="false" onAction="#addAddress" prefHeight="38.0" prefWidth="91.0" text="Add Card" />
             <Label fx:id="topLabel" alignment="CENTER" layoutY="3.0" prefHeight="38.0" prefWidth="600.0" text="Address Book">
                <font>
                   <Font size="24.0" />

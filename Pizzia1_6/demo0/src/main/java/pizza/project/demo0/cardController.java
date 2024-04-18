@@ -53,7 +53,7 @@ public class cardController extends Controller implements Initializable {
             }
         }
         System.out.println("after after: " + filteredCards.size());
-        fillListWithArrayList(cards);
+        fillListWithArrayList(filteredCards);
         listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
@@ -122,13 +122,13 @@ public class cardController extends Controller implements Initializable {
             topLabel.setText("Click on address to edit first");
         }
         else{
-            for (Addresses address :addressLoader.readResponsesFromFile()){
-                if(address.getTitle().equals(selectedAddressString)){
-                    setCurrentAddress(address);
+            for (Cards card : CardLoader.readCards()){
+                if(card.getTitle().equals(selectedAddressString)){
+                    setCurrentCard(card);
                 }
             }
 
-            toDefault(event, "editAddress.fxml", "Edt Address");
+            toDefault(event, "editCard.fxml", "Edt Address");
         }
 
 

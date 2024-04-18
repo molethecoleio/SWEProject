@@ -3,13 +3,13 @@ package pizza.project.demo0;
 public class Cards {
 
     private int ownerUserId;
-    private int cardNumbers;
+    private String cardNumbers;
     private int expMonth;
     private int expYear;
     private int CVV;
     private String name, cardProvider;
 
-    Cards(int ownerUserId, int cardNumbers, int expMonth, int expYear, int CVV, String name, String cardProvider){
+    Cards(int ownerUserId, String cardNumbers, int expMonth, int expYear, int CVV, String name, String cardProvider){
         this.ownerUserId = ownerUserId;
         this.cardNumbers = cardNumbers;
         this.expMonth = expMonth;
@@ -41,11 +41,11 @@ public class Cards {
         this.ownerUserId = ownerUserId;
     }
 
-    public int getCardNumbers() {
+    public String getCardNumbers() {
         return cardNumbers;
     }
 
-    public void setCardNumbers(int cardNumbers) {
+    public void setCardNumbers(String cardNumbers) {
         this.cardNumbers = cardNumbers;
     }
 

@@ -24,6 +24,8 @@ public class Controller {
     private static Addresses currentAddress = null;
     private static Question currentQuestion = null;
 
+    private static Cards currentCard = null;
+
     /**
      * Navigates to a specified view.
      * @param event The event that triggered the navigation.
@@ -69,6 +71,16 @@ public class Controller {
     }
 
     // Getters and setters for current user, address, and question
+
+
+    public static Cards getCurrentCard() {
+        return currentCard;
+    }
+
+    public static void setCurrentCard(Cards currentCard) {
+        Controller.currentCard = currentCard;
+    }
+
     public User getCurrentUser() {
         return currentUser;
     }

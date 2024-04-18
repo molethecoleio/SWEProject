@@ -4,11 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
@@ -19,9 +15,11 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
-public class newCardController extends Controller implements Initializable {
+public class editCardController extends Controller implements Initializable {
 
     @FXML
     private ToggleGroup addressType;
@@ -83,6 +81,43 @@ public class newCardController extends Controller implements Initializable {
         labelDate.setFill(color);
 
         colorDisplayPane.setBackground(new Background(new BackgroundFill(getCurrentUser().getBGcolor(), CornerRadii.EMPTY, Insets.EMPTY)));
+        Cards card = getCurrentCard();
+        cardNumTxtField.setText(card.getCardNumbers());
+        System.out.println(card.getExpYear());
+        System.out.println(card.getExpMonth());
+        datePicker.setValue( createLocalDateFromString( String.valueOf(card.getExpYear()), String.valueOf(card.getExpMonth())));
+        cvvTxtField.setText( String.valueOf(card.getCVV()));
+        nameTxtField.setText( card.getName());
+        if(card.getCardProvider().equals("Visa")){
+            visaRadio.setSelected(true);
+        }
+        if(card.getCardProvider().equals("Master Card")){
+            masterRadio.setSelected(true);
+        }
+        if(card.getCardProvider().equals("American Express")){
+            americanRadio.setSelected(true);
+        }
+        if(card.getCardProvider().equals("Discover")){
+            discoverRadio.setSelected(true);
+        }
+    }
+
+    public static LocalDate createLocalDateFromString(String yearStr, String monthStr) {
+        int year = Integer.parseInt(yearStr);  // Convert year string to integer
+        int month = Integer.parseInt(monthStr);  // Convert month string to integer
+
+        return LocalDate.of(year, month, 1);  // Create LocalDate with the first day of the given month
+    }
+
+    /**
+     * Updates the list of addresses by removing the current address and adding the new one.
+     * @param allCard The list of addresses.
+     * @param newCard The new address to add.
+     */
+    private void updateCards(List<Cards> allCard, Cards newCard) {
+        allCard.removeIf(addr -> addr.getTitle().equals(getCurrentCard().getTitle()));
+        allCard.add(newCard);
+        setCurrentCard(newCard);
     }
 
     @FXML
@@ -93,10 +128,12 @@ public class newCardController extends Controller implements Initializable {
     @FXML
     void saveCard(ActionEvent event) throws IOException {
         if(checkValidation(event)){
-            String cardPro = getCardPro();
-            Cards card = new Cards(getCurrentUser().getUserID(), cardNumTxtField.getText(), Integer.parseInt( getDate(event).substring(5,7)), Integer.parseInt( getDate(event).substring(0,4)), Integer.parseInt(cvvTxtField.getText()), nameTxtField.getText(), cardPro);
             CardLoader cardLoader = new CardLoader("Cards.txt");
-            cardLoader.writeCard(card);
+            List<Cards> allCards = cardLoader.readCards();
+            Cards card = new Cards(getCurrentUser().getUserID(), cardNumTxtField.getText(), Integer.parseInt( getDate(event).substring(5,7)), Integer.parseInt( getDate(event).substring(0,4)), Integer.parseInt(cvvTxtField.getText()), nameTxtField.getText(), getCardPro());
+            updateCards(allCards, card);
+            cardLoader.writeCards(allCards);
+
             toDefault(event, "CardBook.fxml", "Card Book");
         }
     }

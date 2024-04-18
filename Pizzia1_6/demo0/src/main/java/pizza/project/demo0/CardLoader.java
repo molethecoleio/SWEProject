@@ -20,7 +20,7 @@ public class CardLoader {
                 String[] parts = line.split(",");
                 if (parts.length == 7) {
                     int userID = Integer.parseInt(parts[0]);
-                    int cardNumbers = Integer.parseInt(parts[1]);
+                    String cardNumbers = parts[1];
                     int expMonth = Integer.parseInt(parts[2]);
                     int expYear = Integer.parseInt(parts[3]);
                     int CVV = Integer.parseInt(parts[4]);
@@ -41,7 +41,21 @@ public class CardLoader {
             for (Cards card : cards) {
                 writer.write(card.getOwnerUserId() + "," + card.getCardNumbers() + "," + card.getExpMonth() + "," + card.getExpYear() + "," + card.getCVV() + "," + card.getName() + "," + card.getCardProvider());
                 writer.newLine();
-                System.out.println('c');
+            }
+        } catch (IOException e) {
+            System.err.println("Error writing to file: " + e.getMessage());
+        }
+    }
+
+    // Writes Cards objects to the file
+    public void writeCard(Cards card1) {
+        List<Cards> cards = readCards();
+        cards.add(card1);
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+            for (Cards card : cards) {
+                writer.write(card.getOwnerUserId() + "," + card.getCardNumbers() + "," + card.getExpMonth() + "," + card.getExpYear() + "," + card.getCVV() + "," + card.getName() + "," + card.getCardProvider());
+                writer.newLine();
             }
         } catch (IOException e) {
             System.err.println("Error writing to file: " + e.getMessage());

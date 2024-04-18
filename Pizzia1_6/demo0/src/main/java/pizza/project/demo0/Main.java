@@ -35,10 +35,8 @@ public class Main extends Application {
         IDandPasswords idandPasswords = new IDandPasswords();
         CardLoader cardLoader = new CardLoader("Cards.txt");
 
-        Cards card = new Cards(11,88292982,11,2025,1234,"Cole K", "Visa");
-        List<Cards> cardsList = new ArrayList<>();
-        cardsList.add(card);
-        cardLoader.writeCards(cardsList);
+        //Cards card = new Cards(11,"8989384952",11,2025,1234,"Cole K", "Visa");
+        //cardLoader.writeCard(card);
 
         //feed direct file path or it will make its own file
         String fileName = "database.txt";
