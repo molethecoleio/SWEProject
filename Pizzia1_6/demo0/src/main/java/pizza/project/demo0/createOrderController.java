@@ -114,4 +114,10 @@ public class createOrderController extends Controller implements Initializable {
     void printOut(ActionEvent event) {
         System.out.println("hello :)");
     }
+
+    @FXML
+    void toPaymentProccessor(ActionEvent event) throws IOException {
+        toDefault(event, "PaymentProcessor.fxml", "Payment Processor");
+    }
+
 }

@@ -99,7 +99,7 @@ public class pizza {
      *
      * @return The price of the pizza.
      */
-    private double calculatePrice() {
+    public double calculatePrice() {
         double basePrice = switch (size) {
             case "Small" -> 8.99;
             case "Medium" -> 10.99;

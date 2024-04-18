@@ -26,6 +26,8 @@ public class Controller {
 
     private static Cards currentCard = null;
 
+    public static boolean isPaymentProcessing = false;
+
     /**
      * Navigates to a specified view.
      * @param event The event that triggered the navigation.
