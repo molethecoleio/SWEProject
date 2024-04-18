@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pizza.project.demo0.acctSettingsController">
+    <children>
+      <Pane fx:id="colorDisplayPane" prefHeight="402.0" prefWidth="602.0" />
+        <Button layoutX="255.0" layoutY="342.0" mnemonicParsing="false" onAction="#toMenuPage" prefHeight="44.0" prefWidth="77.0" text="Menu" />
+        <TextField fx:id="emailTxtFeild" layoutX="141.0" layoutY="44.0" prefHeight="27.0" prefWidth="302.0" />
+        <Text fx:id="emailMessage" layoutX="35.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change Email:">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Text>
+      <Text fx:id="topMessage" layoutX="247.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Settings">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Button layoutX="462.0" layoutY="43.0" mnemonicParsing="false" onAction="#changeEmail" prefHeight="27.0" prefWidth="61.0" text="Submit" />
+      <TextField fx:id="userNTxtFeild" layoutX="139.0" layoutY="112.0" prefHeight="27.0" prefWidth="303.0" />
+      <Text fx:id="usernameMessage" layoutX="9.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change Username:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Button layoutX="461.0" layoutY="112.0" mnemonicParsing="false" onAction="#changeUserN" prefHeight="27.0" prefWidth="61.0" text="Submit" />
+      <TextField fx:id="pwdTxtFeild" layoutX="141.0" layoutY="181.0" prefHeight="27.0" prefWidth="120.0" />
+      <Text fx:id="passwordMessage" layoutX="12.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change password:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Button layoutX="460.0" layoutY="181.0" mnemonicParsing="false" onAction="#changePwd" prefHeight="27.0" prefWidth="61.0" text="Submit" />
+      <TextField fx:id="repwdTxtFeild" layoutX="320.0" layoutY="181.0" prefHeight="27.0" prefWidth="116.0" />
+      <Text fx:id="repasswordMessage" layoutX="265.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Retype:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <ColorPicker fx:id="BGColorPicker" layoutX="253.0" layoutY="291.0" />
+      <Text fx:id="bgMessage" layoutX="62.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change Back Ground Color:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Button layoutX="401.0" layoutY="290.0" mnemonicParsing="false" onAction="#changeBGColor" prefHeight="27.0" prefWidth="61.0" text="Submit" />
+      <Text fx:id="fontMessage" layoutX="117.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change Font Color:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <ColorPicker fx:id="fontColorPicker" layoutX="254.0" layoutY="245.0">
+         <value>
+            <Color />
+         </value>
+      </ColorPicker>
+      <Button layoutX="402.0" layoutY="244.0" mnemonicParsing="false" onAction="#changeFontColor" prefHeight="27.0" prefWidth="61.0" text="Submit" />
+    </children>
+</AnchorPane>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="03b27f3e-3e1d-4064-855d-3e0d63410227" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/likeLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/likes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addresses.txt" beforeDir="false" afterPath="$PROJECT_DIR$/addresses.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.txt" beforeDir="false" afterPath="$PROJECT_DIR$/database.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/Addresses.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/Addresses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/addressBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/addressBookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/addressLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/addressLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/editAddressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/editAddressController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/forgotPassController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/forgotPassController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/forgotUserNController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/forgotUserNController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/loginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/loginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/menuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/menuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/newAddressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/newAddressController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/resetPassController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/resetPassController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/resetUserNController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/resetUserNController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/signupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/java/pizza/project/demo0/signupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/resources/pizza/project/demo0/AddressBook.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/resources/pizza/project/demo0/AddressBook.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/resources/pizza/project/demo0/FAQs.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/resources/pizza/project/demo0/FAQs.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/resources/pizza/project/demo0/editAddress.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/resources/pizza/project/demo0/editAddress.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/resources/pizza/project/demo0/forgotPass.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/resources/pizza/project/demo0/forgotPass.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/resources/pizza/project/demo0/forgotUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/resources/pizza/project/demo0/forgotUser.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/resources/pizza/project/demo0/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/resources/pizza/project/demo0/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/resources/pizza/project/demo0/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/resources/pizza/project/demo0/menu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/resources/pizza/project/demo0/newAddress.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/resources/pizza/project/demo0/newAddress.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/resources/pizza/project/demo0/resetPass.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/resources/pizza/project/demo0/resetPass.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/resources/pizza/project/demo0/resetUserN.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/resources/pizza/project/demo0/resetUserN.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/resources/pizza/project/demo0/signUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/resources/pizza/project/demo0/signUp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo0/src/main/resources/pizza/project/demo0/toAcctSettings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/demo0/src/main/resources/pizza/project/demo0/toAcctSettings.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2ezsrauNsaabDWv4IpePRXAR7BN" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/molet/OneDrive/Desktop/code/SWEProject/Pizzia1_6",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.JavaFX",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ColeK\Documents\GitHub\SWEProject\Pizzia1_4_4\demo0\src\main\resources\pizza\project\demo0" />
+      <recent name="C:\Users\ColeK\Documents\GitHub\SWEProject\Pizzia1_4_4\demo0\src\main\java\pizza\project\demo0" />
+      <recent name="C:\Users\ColeK\Documents\GitHub\SWEProject\Pizzia1_4_4" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="pizza.project.demo0" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-corretto-21.0.2-4caba194b151-51586f01" />
+        <option value="jdk-22-openjdk-22-4caba194b151-f504ca98" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="03b27f3e-3e1d-4064-855d-3e0d63410227" name="Changes" comment="" />
+      <created>1712918940503</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712918940503</updated>
+      <workItem from="1712918941522" duration="30821000" />
+      <workItem from="1713002568620" duration="20720000" />
+      <workItem from="1713111810378" duration="22420000" />
+      <workItem from="1713246693234" duration="17639000" />
+      <workItem from="1713393901951" duration="19000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

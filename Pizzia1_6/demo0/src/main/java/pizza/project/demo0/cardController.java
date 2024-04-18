@@ -136,7 +136,7 @@ public class cardController extends Controller implements Initializable {
 
     @FXML
     void addAddress(ActionEvent event) throws IOException {
-        toDefault(event, "newAddress.fxml", "Address Adder");
+        toDefault(event, "newCard.fxml", "Card Adder");
     }
 
     @FXML

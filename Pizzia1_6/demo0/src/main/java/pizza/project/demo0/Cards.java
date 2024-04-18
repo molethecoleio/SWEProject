@@ -10,6 +10,7 @@ public class Cards {
     private String name, cardProvider;
 
     Cards(int ownerUserId, int cardNumbers, int expMonth, int expYear, int CVV, String name, String cardProvider){
+        this.ownerUserId = ownerUserId;
         this.cardNumbers = cardNumbers;
         this.expMonth = expMonth;
         this.expYear = expYear;
