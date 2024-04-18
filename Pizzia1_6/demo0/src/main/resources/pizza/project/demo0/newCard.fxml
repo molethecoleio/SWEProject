@@ -15,26 +15,26 @@
     <children>
       <Pane fx:id="colorDisplayPane" prefHeight="402.0" prefWidth="602.0">
          <children>
-            <Text fx:id="labelState" layoutX="117.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CVV:">
+            <Text fx:id="labelCVV" layoutX="117.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CVV:">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <Text fx:id="labelApt" layoutX="42.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Experation Date:">
+            <Text fx:id="labelDate" layoutX="42.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Experation Date:">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <Text fx:id="labelCity" layoutX="53.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name on card:">
+            <Text fx:id="labelCard" layoutX="53.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name on card:">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <RadioButton fx:id="billingRadio" layoutX="128.0" layoutY="308.0" mnemonicParsing="false" text="Visa">
+            <RadioButton fx:id="visaRadio" layoutX="128.0" layoutY="308.0" mnemonicParsing="false" text="Visa">
                <toggleGroup>
                   <ToggleGroup fx:id="addressType" />
                </toggleGroup></RadioButton>
-            <RadioButton fx:id="deliveryRadio" layoutX="188.0" layoutY="309.0" mnemonicParsing="false" text="Master Card" toggleGroup="$addressType" />
+            <RadioButton fx:id="masterRadio" layoutX="188.0" layoutY="309.0" mnemonicParsing="false" text="Master Card" toggleGroup="$addressType" />
             <Button layoutX="342.0" layoutY="342.0" mnemonicParsing="false" onAction="#cancel" prefHeight="44.0" prefWidth="77.0" text="Cancel" />
             <Button layoutX="509.0" layoutY="343.0" mnemonicParsing="false" onAction="#toMenuPage" prefHeight="44.0" prefWidth="77.0" text="Menu" />
             <Label fx:id="topMessage" alignment="CENTER" layoutX="1.0" layoutY="3.0" prefHeight="38.0" prefWidth="594.0" text="New Card">
@@ -48,25 +48,25 @@
                   <Font size="10.0" />
                </font>
             </Text>
-            <RadioButton fx:id="billingRadio1" layoutX="291.0" layoutY="308.0" mnemonicParsing="false" text="American Express">
+            <RadioButton fx:id="americanRadio" layoutX="291.0" layoutY="308.0" mnemonicParsing="false" text="American Express">
                <toggleGroup>
                   <ToggleGroup fx:id="addressType1" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="deliveryRadio1" layoutX="419.0" layoutY="309.0" mnemonicParsing="false" text="Discover">
+            <RadioButton fx:id="discoverRadio" layoutX="419.0" layoutY="309.0" mnemonicParsing="false" text="Discover">
                <toggleGroup>
                   <ToggleGroup fx:id="addressType1" />
                </toggleGroup>
             </RadioButton>
          </children></Pane>
-        <Button layoutX="170.0" layoutY="342.0" mnemonicParsing="false" onAction="#saveAddress" prefHeight="44.0" prefWidth="77.0" text="Save" />
-        <TextField fx:id="streetAddressTxtField" layoutX="140.0" layoutY="45.0" prefHeight="27.0" prefWidth="368.0" promptText="*format as all numbers no spaces or dashes" />
-        <Text fx:id="labelStreet" layoutX="35.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card Number:">
+        <Button layoutX="170.0" layoutY="342.0" mnemonicParsing="false" onAction="#saveCard" prefHeight="44.0" prefWidth="77.0" text="Save" />
+        <TextField fx:id="cardNumTxtField" layoutX="140.0" layoutY="45.0" prefHeight="27.0" prefWidth="368.0" promptText="*format as all numbers no spaces or dashes" />
+        <Text fx:id="labelCard" layoutX="35.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card Number:">
             <font>
                 <Font size="15.0" />
             </font>
         </Text>
-      <TextField fx:id="cityTxtFeild" layoutX="205.0" layoutY="253.0" prefHeight="27.0" prefWidth="159.0" />
-      <TextField fx:id="cityTxtFeild1" layoutX="205.0" layoutY="179.0" prefHeight="27.0" prefWidth="159.0" />
+      <TextField fx:id="nameTxtField" layoutX="205.0" layoutY="253.0" prefHeight="27.0" prefWidth="159.0" />
+      <TextField fx:id="cvvTxtField" layoutX="205.0" layoutY="179.0" prefHeight="27.0" prefWidth="159.0" />
     </children>
 </AnchorPane>
