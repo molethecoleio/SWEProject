@@ -8,13 +8,70 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="564.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pizza.project.demo0.createOrderController">
    <children>
-<<<<<<< Updated upstream
-      <Pane fx:id="colorDisplayPane" prefHeight="564.0" prefWidth="600.0" />
+      <Pane fx:id="colorDisplayPane" prefHeight="564.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="totalLabel" layoutX="463.0" layoutY="458.0" text="TOTAL:">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="wholePriceLabel" layoutX="470.0" layoutY="485.0" text="\$0.00">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <RadioButton fx:id="smallRadioDrinks" layoutX="14.0" layoutY="365.0" mnemonicParsing="false" onMouseClicked="#drinkSizeChange" selected="true" text="Small">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="drinkSize" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="mediumRadioDrinks" layoutX="101.0" layoutY="365.0" mnemonicParsing="false" onMouseClicked="#drinkSizeChange" text="Medium" toggleGroup="$drinkSize">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="largeRadioDrinks" layoutX="207.0" layoutY="365.0" mnemonicParsing="false" onMouseClicked="#drinkSizeChange" text="Large" toggleGroup="$drinkSize">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="exLRadioDrinks" layoutX="291.0" layoutY="365.0" mnemonicParsing="false" onMouseClicked="#drinkSizeChange" text="ExLarge" toggleGroup="$drinkSize">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="smallPizzaRadio" layoutX="18.0" layoutY="254.0" mnemonicParsing="false" onAction="#changePizzaSizeOnAction" selected="true" text="Small">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="pizziaSize" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="mediumPizzaRadio" layoutX="105.0" layoutY="254.0" mnemonicParsing="false" onAction="#changePizzaSizeOnAction" text="Medium" toggleGroup="$pizziaSize">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="LargeRadio" layoutX="211.0" layoutY="254.0" mnemonicParsing="false" onAction="#changePizzaSizeOnAction" text="Large" toggleGroup="$pizziaSize">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="exLPizzaRadio" layoutX="295.0" layoutY="254.0" mnemonicParsing="false" onAction="#changePizzaSizeOnAction" text="ExLarge" toggleGroup="$pizziaSize">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </RadioButton>
+            <Button layoutX="426.0" layoutY="512.0" mnemonicParsing="false" onAction="#toPaymentProccessor" prefHeight="45.0" prefWidth="141.0" text="Proceed To Payment" />
+         </children></Pane>
       <Label fx:id="pizzaLabel" layoutX="14.0" layoutY="30.0" prefHeight="26.0" prefWidth="58.0" text="Pizza">
          <font>
             <Font size="22.0" />
@@ -39,159 +96,7 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Button layoutX="13.0" layoutY="143.0" mnemonicParsing="false" onAction="#printOut" prefHeight="37.0" prefWidth="172.0">
-=======
-      <Pane fx:id="colorDisplayPane" prefHeight="564.0" prefWidth="650.0">
-         <children>
-            <Label fx:id="totalLabel" alignment="CENTER" layoutX="392.0" layoutY="5.0" prefHeight="36.0" prefWidth="255.0" text="TOTAL:">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Label>
-            <Label fx:id="wholePriceLabel" alignment="CENTER" layoutX="394.0" layoutY="38.0" prefHeight="35.0" prefWidth="253.0" text="\$0.00">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Label>
-            <RadioButton fx:id="smallRadioDrinks" layoutX="15.0" layoutY="358.0" mnemonicParsing="false" onMouseClicked="#drinkSizeChange" prefHeight="27.0" prefWidth="61.0" selected="true" text="Small">
-               <toggleGroup>
-                  <ToggleGroup fx:id="Drinks" />
-               </toggleGroup>
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </RadioButton>
-            <RadioButton fx:id="mediumRadioDrinks" layoutX="94.0" layoutY="359.0" mnemonicParsing="false" onMouseClicked="#drinkSizeChange" prefHeight="27.0" prefWidth="78.0" text="Medium" toggleGroup="$Drinks">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </RadioButton>
-            <RadioButton fx:id="largeRadioDrinks" layoutX="193.0" layoutY="358.0" mnemonicParsing="false" onMouseClicked="#drinkSizeChange" prefHeight="27.0" prefWidth="78.0" text="Large" toggleGroup="$Drinks">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </RadioButton>
-            <RadioButton fx:id="exLRadioDrinks" layoutX="283.0" layoutY="359.0" mnemonicParsing="false" onMouseClicked="#drinkSizeChange" prefHeight="27.0" prefWidth="81.0" text="Ex-Large" toggleGroup="$Drinks">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </RadioButton>
-            <Line fx:id="line1" endX="242.29290771484375" endY="-3.0517578125E-5" layoutX="145.0" layoutY="389.0" startX="-143.2928466796875" startY="-3.0517578125E-5" />
-            <Line fx:id="line0" endX="240.00003051757812" endY="-3.0517578125E-5" layoutX="147.0" layoutY="503.0" startX="-146.29283142089844" startY="0.707061767578125" />
-            <Line fx:id="line7" endX="240.00003051757812" endY="-3.0517578125E-5" layoutX="148.0" layoutY="503.0" startX="240.00006103515625" startY="-503.0" />
-            <Line fx:id="line8" endX="240.00003051757812" endY="-3.0517578125E-5" layoutX="-239.0" layoutY="503.0" startX="240.0" startY="-503.0" />
-            <Line fx:id="line2" endX="241.29290771484375" endY="-3.0517578125E-5" layoutX="146.0" layoutY="325.0" startX="-144.66664123535156" startY="-3.0517578125E-5" />
-            <Button layoutX="110.0" layoutY="36.0" mnemonicParsing="false" onAction="#createPizza" prefHeight="43.0" prefWidth="172.0">
-               <graphic>
-                  <VBox prefHeight="32.0" prefWidth="156.0">
-                     <children>
-                        <Label fx:id="customPizzaLabel" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="156.0" text="Custom Pizza">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label text="\$8.99" />
-                     </children>
-                  </VBox>
-               </graphic>
-            </Button>
-            <Label fx:id="pizzaLabel" alignment="CENTER" layoutX="1.0" layoutY="-3.0" prefHeight="43.0" prefWidth="383.0" text="PIZZA!!!" textAlignment="CENTER">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <Line fx:id="line3" endX="242.7071533203125" endY="-3.0517578125E-5" layoutX="145.0" layoutY="140.0" startX="-143.29286193847656" startY="-3.0517578125E-5" />
-            <Line fx:id="line4" endX="242.7071533203125" endY="-3.0517578125E-5" layoutX="144.0" layoutY="84.0" startX="-143.7071075439453" startY="-3.0517578125E-5" />
-            <Label fx:id="specialPizzaLabel" alignment="CENTER" layoutX="1.0" layoutY="79.0" prefHeight="31.0" prefWidth="389.0" text="Specialty Pizzas">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <RadioButton fx:id="smallPizzaRadio" layoutX="16.0" layoutY="110.0" mnemonicParsing="false" onAction="#changePizzaSizeOnAction" onMouseClicked="#changePizzaSize" prefHeight="27.0" prefWidth="61.0" selected="true" text="Small">
-               <toggleGroup>
-                  <ToggleGroup fx:id="pizzaSize" />
-               </toggleGroup>
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </RadioButton>
-            <RadioButton fx:id="mediumPizzaRadio" layoutX="92.0" layoutY="111.0" mnemonicParsing="false" onAction="#changePizzaSizeOnAction" onMouseClicked="#changePizzaSize" prefHeight="27.0" prefWidth="78.0" text="Medium" toggleGroup="$pizzaSize">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </RadioButton>
-            <RadioButton fx:id="exLPizzaRadio" layoutX="275.0" layoutY="111.0" mnemonicParsing="false" onAction="#changePizzaSizeOnAction" onMouseClicked="#changePizzaSize" prefHeight="27.0" prefWidth="87.0" text="Ex-Large" toggleGroup="$pizzaSize">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </RadioButton>
-            <Button layoutX="8.0" layoutY="208.0" mnemonicParsing="false" onAction="#addMeatLoversPizza" prefHeight="37.0" prefWidth="172.0">
-               <graphic>
-                  <VBox prefHeight="32.0" prefWidth="156.0">
-                     <children>
-                        <Label fx:id="customPizzaLabel12" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="156.0" text="Meat Lovers Pizza">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label text="\$12.99" />
-                     </children>
-                  </VBox>
-               </graphic>
-            </Button>
-            <Button layoutX="8.0" layoutY="264.0" mnemonicParsing="false" onAction="#addMeatLoversPizza" prefHeight="37.0" prefWidth="172.0">
-               <graphic>
-                  <VBox prefHeight="32.0" prefWidth="156.0">
-                     <children>
-                        <Label fx:id="customPizzaLabel121" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="156.0" text="Meat Lovers Pizza">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label text="\$12.99" />
-                     </children>
-                  </VBox>
-               </graphic>
-            </Button>
-            <Button layoutX="202.0" layoutY="208.0" mnemonicParsing="false" onAction="#addMeatLoversPizza" prefHeight="37.0" prefWidth="172.0">
-               <graphic>
-                  <VBox prefHeight="32.0" prefWidth="156.0">
-                     <children>
-                        <Label fx:id="customPizzaLabel122" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="156.0" text="Meat Lovers Pizza">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label text="\$12.99" />
-                     </children>
-                  </VBox>
-               </graphic>
-            </Button>
-            <Button layoutX="202.0" layoutY="265.0" mnemonicParsing="false" onAction="#addMeatLoversPizza" prefHeight="37.0" prefWidth="172.0">
-               <graphic>
-                  <VBox prefHeight="32.0" prefWidth="156.0">
-                     <children>
-                        <Label fx:id="customPizzaLabel1211" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="156.0" text="Meat Lovers Pizza">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label text="\$12.99" />
-                     </children>
-                  </VBox>
-               </graphic>
-            </Button>
-            <Line fx:id="line5" endX="241.29290771484375" endY="-2.86102294921875E-5" layoutX="146.0" layoutY="32.0" startX="-144.66664123535156" startY="-3.0517578125E-5" />
-            <Line fx:id="line6" endX="241.29290771484375" endY="-2.86102294921875E-5" layoutX="146.0" layoutY="1.0" startX="-144.66664123535156" startY="-3.0517578125E-5" />
-            <RadioButton fx:id="LargeRadio" layoutX="181.0" layoutY="111.0" mnemonicParsing="false" onAction="#changePizzaSizeOnAction" onMouseClicked="#changePizzaSize" prefHeight="27.0" prefWidth="78.0" text="Large" toggleGroup="$pizzaSize">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </RadioButton>
-            <Button layoutX="456.0" layoutY="513.0" mnemonicParsing="false" onAction="#toPaymentProcessor" prefHeight="42.0" prefWidth="136.0" text="proceed to payment" />
-         </children></Pane>
-      <Button layoutX="8.0" layoutY="149.0" mnemonicParsing="false" onAction="#addMeatLoversPizza" prefHeight="37.0" prefWidth="172.0">
->>>>>>> Stashed changes
+      <Button layoutX="13.0" layoutY="143.0" mnemonicParsing="false" onAction="#addMeatLoversPizza" prefHeight="37.0" prefWidth="172.0">
          <graphic>
             <VBox prefHeight="32.0" prefWidth="156.0">
                <children>
@@ -205,7 +110,7 @@
             </VBox>
          </graphic>
       </Button>
-      <Button layoutX="202.0" layoutY="149.0" mnemonicParsing="false" onAction="#addSupremePizza" prefHeight="37.0" prefWidth="172.0">
+      <Button layoutX="205.0" layoutY="143.0" mnemonicParsing="false" onAction="#addSupremePizza" prefHeight="37.0" prefWidth="172.0">
          <graphic>
             <VBox prefHeight="32.0" prefWidth="156.0">
                <children>
@@ -219,9 +124,9 @@
             </VBox>
          </graphic>
       </Button>
-      <Label fx:id="drinksLabel" alignment="CENTER" layoutX="4.0" layoutY="326.0" prefHeight="32.0" prefWidth="381.0" text="Drinks">
+      <Label fx:id="drinksLabel" layoutX="10.0" layoutY="314.0" prefHeight="18.0" prefWidth="172.0" text="Drinks">
          <font>
-            <Font size="25.0" />
+            <Font size="22.0" />
          </font>
       </Label>
       <Button fx:id="sodaSelection" layoutX="8.0" layoutY="398.0" mnemonicParsing="false" onAction="#printOut" prefHeight="45.0" prefWidth="90.0">
@@ -322,7 +227,7 @@
             </VBox>
          </graphic>
       </Button>
-      <ListView fx:id="listView" layoutX="391.0" layoutY="78.0" prefHeight="424.0" prefWidth="255.0" />
+      <ListView fx:id="listView" layoutX="393.0" layoutY="78.0" prefHeight="372.0" prefWidth="200.0" />
       <Button layoutX="7.0" layoutY="516.0" mnemonicParsing="false" onAction="#toMenu" prefHeight="42.0" prefWidth="78.0" text="Menu" />
       <Button layoutX="293.0" layoutY="516.0" mnemonicParsing="false" onAction="#restartOrder" prefHeight="42.0" prefWidth="97.0" text="Restart Order" />
    </children>

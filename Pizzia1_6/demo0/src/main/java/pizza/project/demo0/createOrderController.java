@@ -85,6 +85,8 @@ public class createOrderController extends Controller implements Initializable {
     @FXML
     private RadioButton exLPizzaRadio;
 
+    /*
+
     @FXML private Line line0;
 
     @FXML private Line line1;
@@ -102,6 +104,8 @@ public class createOrderController extends Controller implements Initializable {
     @FXML private Line line7;
 
     @FXML private Line line8;
+
+     */
 
     int drinkSize = 0;
     int pizzaSize = 0;
@@ -140,6 +144,7 @@ public class createOrderController extends Controller implements Initializable {
         LargeRadio.setTextFill(getCurrentUser().getFontcolor());
         exLPizzaRadio.setTextFill(getCurrentUser().getFontcolor());
 
+        /*
         line0.setStroke(getCurrentUser().getFontcolor());
         line1.setStroke(getCurrentUser().getFontcolor());
         line2.setStroke(getCurrentUser().getFontcolor());
@@ -150,15 +155,18 @@ public class createOrderController extends Controller implements Initializable {
         line7.setStroke(getCurrentUser().getFontcolor());
         line8.setStroke(getCurrentUser().getFontcolor());
 
+         */
+
         ArrayList<pizza> thePizza = pizzaLoader.readPizzaFromFile();
         ArrayList<drink> theDrink = readDrinkFromFile();
         if(!thePizza.isEmpty()) {
             fillListWithTextFile(thePizza, theDrink);
         }
+
     }
 
     @FXML
-    void toPaymentProcessor(ActionEvent event) throws IOException {
+    void toPaymentProccessor(ActionEvent event) throws IOException {
         toDefault(event, "PaymentProcessor.fxml", "YUH");
     }
 

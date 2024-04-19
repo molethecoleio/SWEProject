@@ -1,10 +1,4 @@
-<<<<<<< Updated upstream
-2399838,
-7457995,Extra Cheese,Ham
-5587335,
-=======
-5573451,Pepperoni,Ham,Bacon
-1181580,Pepperoni,Ham,Bacon
-5246840,Pepperoni,Ham,Bacon
-4165469,Pepperoni,Ham,Bacon
->>>>>>> Stashed changes
+1559700,Pepperoni,Ham,Bacon
+1402100,Pepperoni,Ham,Bacon
+3146268,Pepperoni,Ham,Bacon
+2893702,Pepperoni,Ham,Bacon
