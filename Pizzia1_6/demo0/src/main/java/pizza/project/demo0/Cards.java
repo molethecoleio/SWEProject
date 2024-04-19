@@ -1,26 +1,28 @@
 package pizza.project.demo0;
 
 public class Cards {
-    private int cardNumbers;
+
+    private int ownerUserId;
+    private String cardNumbers;
     private int expMonth;
     private int expYear;
     private int CVV;
-    private String name;
+    private String name, cardProvider;
 
-    Cards(int cardNumbers, int expMonth, int expYear, int CVV, String name){
+    Cards(int ownerUserId, String cardNumbers, int expMonth, int expYear, int CVV, String name, String cardProvider){
+        this.ownerUserId = ownerUserId;
         this.cardNumbers = cardNumbers;
         this.expMonth = expMonth;
         this.expYear = expYear;
         this.CVV = CVV;
         this.name = name;
+        this.cardProvider = cardProvider;
     }
 
-
-<<<<<<< Updated upstream
-=======
-    public String getFinalTitle(){
+    public String getTitle(){
         String stringNum = String.valueOf(cardNumbers);
-        return cardProvider + " " + stringNum.substring(0,3) + "*";
+        String num = "Starting With: " + stringNum.substring(0,4) + "*";
+        return cardProvider +","+ num + ", Expres on: " + expMonth + "/" + expYear;
     }
 
     public String getCardProvider() {
@@ -78,5 +80,4 @@ public class Cards {
     public void setName(String name) {
         this.name = name;
     }
->>>>>>> Stashed changes
 }
