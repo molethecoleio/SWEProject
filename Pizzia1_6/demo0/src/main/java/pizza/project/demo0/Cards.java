@@ -25,6 +25,12 @@ public class Cards {
         return cardProvider +","+ num + ", Expres on: " + expMonth + "/" + expYear;
     }
 
+    public String getFinalTitle(){
+        String stringNum = String.valueOf(cardNumbers);
+        String num = "Starting With: " + stringNum.substring(0,3) + "*";
+        return cardProvider +", "+ num;
+    }
+
     public String getCardProvider() {
         return cardProvider;
     }

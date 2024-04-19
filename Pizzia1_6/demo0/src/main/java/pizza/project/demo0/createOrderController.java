@@ -339,8 +339,6 @@ public class createOrderController extends Controller implements Initializable {
     void printOut(ActionEvent event) {
         System.out.println("hello :)");
     }
-<<<<<<< Updated upstream
-=======
 
     @FXML
     void addMeatLoversPizza(ActionEvent event)
@@ -393,6 +391,4 @@ public class createOrderController extends Controller implements Initializable {
         }
     }
 
-
->>>>>>> Stashed changes
 }

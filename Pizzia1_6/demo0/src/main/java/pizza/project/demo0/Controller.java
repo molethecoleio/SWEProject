@@ -76,6 +76,14 @@ public class Controller{
         stage.show();
     }
 
+    public static Cards getCurrentCard() {
+        return currentCard;
+    }
+
+    public static void setCurrentCard(Cards currentCard) {
+        Controller.currentCard = currentCard;
+    }
+
     // Getters and setters for current user, address, and question
     public User getCurrentUser() {
         return currentUser;

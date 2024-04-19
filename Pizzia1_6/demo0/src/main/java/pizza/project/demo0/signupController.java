@@ -101,7 +101,7 @@ public class signupController extends Controller {
             }
         }
 
-        resetTxtFields();
+        //resetTxtFields();
         return true;
     }
 
