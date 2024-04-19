@@ -24,9 +24,6 @@ public class Controller{
     private static User currentUser = null;
     private static Addresses currentAddress = null;
     private static Question currentQuestion = null;
-
-<<<<<<< Updated upstream
-=======
     private static Cards currentCard = null;
 
     public static boolean isPaymentProcessing = false;
@@ -35,7 +32,6 @@ public class Controller{
 
     public static String pizzaContext = "custom";
 
->>>>>>> Stashed changes
     /**
      * Navigates to a specified view.
      * @param event The event that triggered the navigation.
