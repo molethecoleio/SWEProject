@@ -1,5 +1,6 @@
 package pizza.project.demo0;
 
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +15,7 @@ import java.io.IOException;
  * Base controller class providing navigation functionalities and state management
  * across various parts of the application.
  */
-public class Controller {
+public class Controller{
 
     private Stage stage;
     private Scene scene;
@@ -24,6 +25,17 @@ public class Controller {
     private static Addresses currentAddress = null;
     private static Question currentQuestion = null;
 
+<<<<<<< Updated upstream
+=======
+    private static Cards currentCard = null;
+
+    public static boolean isPaymentProcessing = false;
+
+    public static boolean isEditing = false;
+
+    public static String pizzaContext = "custom";
+
+>>>>>>> Stashed changes
     /**
      * Navigates to a specified view.
      * @param event The event that triggered the navigation.

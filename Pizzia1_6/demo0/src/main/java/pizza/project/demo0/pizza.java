@@ -69,13 +69,13 @@ public class pizza {
      * @return The string representation of the size.
      */
     private String getSizeFromByte(byte x) {
-        switch(x) {
-            case 0: return "Small";
-            case 1: return "Medium";
-            case 2: return "Large";
-            case 3: return "Extra Large";
-            default: return "Biggg Boi";
-        }
+        return switch (x) {
+            case 0 -> "Small";
+            case 1 -> "Medium";
+            case 2 -> "Large";
+            case 3 -> "Extra Large";
+            default -> "Biggg Boi";
+        };
     }
 
     /**
@@ -85,13 +85,13 @@ public class pizza {
      * @return The string representation of the crust.
      */
     private String getCrustFromByte(byte x) {
-        switch(x) {
-            case 0: return "Thin Crust";
-            case 1: return "Thick Crust";
-            case 2: return "Stuffed Crust";
-            case 3: return "Garlic Parmesan Crust";
-            default: return "Gluten Free Crust";
-        }
+        return switch (x) {
+            case 0 -> "Thin Crust";
+            case 1 -> "Thick Crust";
+            case 2 -> "Stuffed Crust";
+            case 3 -> "Garlic Parmesan Crust";
+            default -> "Gluten Free Crust";
+        };
     }
 
     /**

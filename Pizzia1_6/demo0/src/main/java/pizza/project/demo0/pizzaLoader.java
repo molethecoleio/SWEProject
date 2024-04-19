@@ -103,13 +103,13 @@ public class pizzaLoader {
      * @return The byte code for the given pizza size.
      */
     private static byte getSizeByteFromString(String size) {
-        switch (size) {
-            case "Small": return 0;
-            case "Medium": return 1;
-            case "Large": return 2;
-            case "Extra Large": return 3;
-            default: return 4; // Biggg Boi
-        }
+        return switch (size) {
+            case "Small" -> 0;
+            case "Medium" -> 1;
+            case "Large" -> 2;
+            case "Extra Large" -> 3;
+            default -> 4; // Biggg Boi
+        };
     }
 
     /**

@@ -2,8 +2,10 @@ package pizza.project.demo0;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -13,10 +15,12 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
 /**
@@ -27,7 +31,10 @@ public class newAddressController extends Controller implements Initializable {
     @FXML private TextField aptTxtField;
     @FXML private RadioButton billingRadio;
     @FXML private RadioButton bothRadio;
-    @FXML private TextField cityTxtField;
+
+    @FXML
+    private TextField cityTxtField;
+
     @FXML private Pane colorDisplayPane;
     @FXML private RadioButton deliveryRadio;
     @FXML private TextField phoneNumTxtField;
@@ -37,7 +44,30 @@ public class newAddressController extends Controller implements Initializable {
     @FXML private TextField zipTxtField;
     @FXML private Text labelApt, labelCity, labelOptional, labelPhoneNum, labelState, labelStreet, labelZip;
 
-    private final String[] states = {/* State names here */};
+
+    private final String[] states = {
+            "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia",
+            "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland",
+            "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey",
+            "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina",
+            "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
+    };
+
+    private Stage stage;
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+
+    public void navigate(String fxml) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+            Scene scene = new Scene(loader.load());
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * Initializes the controller, setting UI components to reflect current user settings and filling state dropdown.
@@ -62,6 +92,38 @@ public class newAddressController extends Controller implements Initializable {
         for (RadioButton radio : radios) {
             radio.setTextFill(getCurrentUser().getFontcolor());
         }
+
+        if(isEditing){
+            loadCurrentAddress();
+        }
+    }
+
+    /**
+     * Loads the current address data into the form fields.
+     */
+    private void loadCurrentAddress() {
+        Addresses currentAddress = getCurrentAddress();
+        streetAddressTxtField.setText(currentAddress.getStreetAddress());
+        aptTxtField.setText(currentAddress.getApartment());
+        cityTxtField.setText(currentAddress.getCity());
+        zipTxtField.setText(String.valueOf(currentAddress.getZip()));
+        phoneNumTxtField.setText(currentAddress.getPhone());
+        stateDropDown.setValue(currentAddress.getState());
+        selectAddressType(currentAddress.getAddressType());
+    }
+
+    /**
+     * Selects the appropriate radio button based on the address type.
+     * @param type The address type: 1 for billing, 2 for delivery, 3 for both.
+     */
+    private void selectAddressType(int type) {
+        if (type == 1) {
+            billingRadio.setSelected(true);
+        } else if (type == 2) {
+            deliveryRadio.setSelected(true);
+        } else if (type == 3) {
+            bothRadio.setSelected(true);
+        }
     }
 
     /**
@@ -70,7 +132,7 @@ public class newAddressController extends Controller implements Initializable {
      * @param event The action event triggered when a state is selected.
      */
     public void getState(ActionEvent event) {
-        // Implementation to handle state selection, currently unused
+
     }
 
     /**
@@ -81,7 +143,11 @@ public class newAddressController extends Controller implements Initializable {
      */
     @FXML
     void cancel(ActionEvent event) throws IOException {
-        toDefault(event, "AddressBook.fxml", "Address Book Page");
+        if(isPaymentProcessing){
+            toDefault(event, "PaymentProcessor.fxml", "Payment Processor");
+        } else{
+            toDefault(event, "AddressBook.fxml", "Address Book");
+        }
     }
 
     /**
@@ -99,9 +165,28 @@ public class newAddressController extends Controller implements Initializable {
                     Integer.parseInt(zipTxtField.getText()), phoneNumTxtField.getText());
 
             ArrayList<Addresses> addresses = addressLoader.readResponsesFromFile();
+
+            if(isEditing) {
+                Addresses removeAddress = getCurrentAddress();
+                for (Iterator<Addresses> iterator = addresses.iterator(); iterator.hasNext(); ) {
+                    Addresses address = iterator.next();
+                    // Check the condition to match the address you want to remove
+                    if (address.getTitle().equals(removeAddress.getTitle()) && // replace getField1 with actual method
+                            address.getOwnerID() == (removeAddress.getOwnerID())) { // replace getField2 with actual method
+                        iterator.remove();
+                        break;  // Remove this line if there can be multiple matching addresses
+                    }
+                }
+            }
+
             addresses.add(newAddress);
             addressLoader.writeResponseToFile(addresses);
-            toDefault(event, "AddressBook.fxml", "Address Book");
+            if(isPaymentProcessing){
+                toDefault(event, "PaymentProcessor.fxml", "Payment Processor");
+            } else{
+                toDefault(event, "AddressBook.fxml", "Address Book");
+            }
+
         }
     }
 
@@ -149,6 +234,10 @@ public class newAddressController extends Controller implements Initializable {
      */
     @FXML
     void toMenuPage(ActionEvent event) throws IOException {
-        toDefault(event, "menu.fxml", "Menu Page");
+        if(isPaymentProcessing){
+            toDefault(event, "PaymentProcessor.fxml", "Payment Processor");
+        } else{
+            toDefault(event, "menu.fxml", "Menu Page");
+        }
     }
 }

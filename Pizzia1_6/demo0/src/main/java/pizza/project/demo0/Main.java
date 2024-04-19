@@ -29,10 +29,27 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        /*
+        drink.readDrinkFromFile();
+        ArrayList<drink> drinks = new ArrayList<>();
+        for(byte i = 0; i < 4; i++){
+            drinks.add(new drink(i, "water"));
+        }
 
+<<<<<<< Updated upstream
         //loads the passwords into the system
         IDandPasswords idandPasswords = new IDandPasswords();
+=======
+        drinks.add(new drink((byte)3, "Coffee"));
+        drinks.add(new drink((byte)2, "Tea"));
 
+        for (drink drinnk: drinks){
+            drink.writeDrinkToFile(drinnk);
+        }
+>>>>>>> Stashed changes
+
+
+         */
         //feed direct file path or it will make its own file
         String fileName = "database.txt";
         launch();

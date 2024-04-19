@@ -70,6 +70,6 @@
          </font>
       </Text>
       <TextField fx:id="aptTxtField" layoutX="140.0" layoutY="110.0" prefHeight="27.0" prefWidth="368.0" />
-      <TextField fx:id="cityTxtFeild" layoutX="346.0" layoutY="178.0" prefHeight="27.0" prefWidth="159.0" />
+      <TextField fx:id="cityTxtField" layoutX="344.0" layoutY="177.0" prefHeight="27.0" prefWidth="159.0" />
     </children>
 </AnchorPane>
