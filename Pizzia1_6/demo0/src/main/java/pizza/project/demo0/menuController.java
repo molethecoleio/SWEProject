@@ -101,6 +101,16 @@ public class menuController extends Controller implements Initializable {
     }
 
     /**
+     * Navigates to the Create Order page.
+     * @param event The action event that triggered this method.
+     * @throws IOException If an error occurs during the page transition.
+     */
+    @FXML
+    void toCards(ActionEvent event) throws IOException {
+        toDefault(event, "CardBook.fxml", "Create Order Page");
+    }
+
+    /**
      * Navigates to the FAQs page.
      * @param event The action event that triggered this method.
      * @throws IOException If an error occurs during the page transition.
