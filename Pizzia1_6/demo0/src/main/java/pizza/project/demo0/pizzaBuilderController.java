@@ -271,7 +271,7 @@ public class pizzaBuilderController extends Controller implements Initializable 
             }
             currentPizza = pizza.createNewPizza(size, crust, stringToppings, pizzaLoader.readPizzaFromFile());
         }
-        pizzaLoader.writePizzaToFile(currentPizza);
+        pizzaLoader.writePizzaToFile(currentPizza, 0);
         toDefault(event, "createOrder.fxml", "Order Builder");
     }
 

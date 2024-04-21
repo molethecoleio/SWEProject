@@ -17,21 +17,41 @@ public class pizzaLoader {
      *
      * @param myPizza The pizza object to write to file.
      */
-    public static void writePizzaToFile(pizza myPizza) {
-        try (FileWriter writer = new FileWriter("temp.txt", true)) {
-            writer.append(String.format("%s,%s,%s\n", myPizza.getSize(), myPizza.getCrust(), myPizza.getPizzaId()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try (FileWriter writer = new FileWriter("toppings.txt", true)) {
-            if (myPizza.getToppings().isEmpty()) {
-                writer.append(String.format("%d,\n", myPizza.getPizzaId())); // Ensure even pizzas with no toppings are correctly formatted
-            } else {
-                writer.append(String.format("%d,%s\n", myPizza.getPizzaId(), String.join(",", myPizza.getToppings())));
+    public static void writePizzaToFile(pizza myPizza, int temp) {
+        if(temp == 0) {
+            try (FileWriter writer = new FileWriter("temp.txt", true)) {
+                writer.append(String.format("%s,%s,%s\n", myPizza.getSize(), myPizza.getCrust(), myPizza.getPizzaId()));
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+
+            try (FileWriter writer = new FileWriter("toppings.txt", true)) {
+                if (myPizza.getToppings().isEmpty()) {
+                    writer.append(String.format("%d,\n", myPizza.getPizzaId())); // Ensure even pizzas with no toppings are correctly formatted
+                } else {
+                    writer.append(String.format("%d,%s\n", myPizza.getPizzaId(), String.join(",", myPizza.getToppings())));
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else {
+
+            try (FileWriter writer = new FileWriter("pizzaPermaFile.txt", true)) {
+                writer.append(String.format("%s,%s,%s\n", myPizza.getSize(), myPizza.getCrust(), myPizza.getPizzaId()));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            try (FileWriter writer = new FileWriter("toppingsPerma.txt", true)) {
+                if (myPizza.getToppings().isEmpty()) {
+                    writer.append(String.format("%d,\n", myPizza.getPizzaId())); // Ensure even pizzas with no toppings are correctly formatted
+                } else {
+                    writer.append(String.format("%d,%s\n", myPizza.getPizzaId(), String.join(",", myPizza.getToppings())));
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 

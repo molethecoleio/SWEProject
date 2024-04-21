@@ -5,46 +5,51 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pizza.project.demo0.FAQsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pizza.project.demo0.FAQsController">
     <children>
       <Pane fx:id="colorDisplayPane" prefHeight="400.0" prefWidth="600.0">
          <children>
-            <Button layoutX="18.0" layoutY="339.0" mnemonicParsing="false" onAction="#toMenu" prefHeight="44.0" prefWidth="97.0" text="Menu" />
+            <Button layoutX="16.0" layoutY="287.0" mnemonicParsing="false" onAction="#toMenu" prefHeight="44.0" prefWidth="97.0" text="Menu" />
             <ListView fx:id="listView" layoutX="127.0" layoutY="73.0" prefHeight="316.0" prefWidth="238.0" />
             <TextArea fx:id="questionContent" editable="false" layoutX="376.0" layoutY="57.0" prefHeight="127.0" prefWidth="200.0" />
-            <Label fx:id="welcomeUser" alignment="CENTER" layoutY="5.0" prefHeight="52.0" prefWidth="451.0" text="Questions">
+            <Label fx:id="welcomeUser" alignment="CENTER" layoutX="129.0" layoutY="5.0" prefHeight="52.0" prefWidth="238.0" text="Questions">
                <font>
                   <Font size="33.0" />
                </font>
             </Label>
-            <Label fx:id="questionTitle" alignment="TOP_CENTER" layoutX="374.0" layoutY="11.0" prefHeight="44.0" prefWidth="200.0" text="Question Title">
+            <Label fx:id="questionTitle" alignment="TOP_CENTER" layoutX="374.0" layoutY="11.0" prefHeight="44.0" prefWidth="200.0" text="Question Title" wrapText="true">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <RadioButton fx:id="dislikeRadioButton" disable="true" layoutX="18.0" layoutY="284.0" mnemonicParsing="false" onMouseClicked="#userReviewed" prefHeight="40.0" prefWidth="80.0" text="Dislike">
+            <RadioButton fx:id="dislikeRadioButton" disable="true" layoutX="26.0" layoutY="239.0" mnemonicParsing="false" onMouseClicked="#userReviewed" prefHeight="40.0" prefWidth="80.0" text="Dislike">
                <toggleGroup>
                   <ToggleGroup fx:id="likes" />
                </toggleGroup></RadioButton>
-            <RadioButton fx:id="likeRadioButton" disable="true" layoutX="18.0" layoutY="244.0" mnemonicParsing="false" onMouseClicked="#userReviewed" prefHeight="40.0" prefWidth="80.0" text="Like" toggleGroup="$likes" />
-            <Label fx:id="responseTilte" alignment="TOP_CENTER" layoutX="374.0" layoutY="186.0" prefHeight="44.0" prefWidth="200.0" text="Most Popular Response">
+            <RadioButton fx:id="likeRadioButton" disable="true" layoutX="26.0" layoutY="195.0" mnemonicParsing="false" onMouseClicked="#userReviewed" prefHeight="40.0" prefWidth="80.0" text="Like" toggleGroup="$likes" />
+            <Label fx:id="responseTilte" alignment="TOP_CENTER" layoutX="397.0" layoutY="186.0" prefHeight="44.0" prefWidth="179.0" text="Admin Response" wrapText="true">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button fx:id="viewResponsesButton" disable="true" layoutX="416.0" layoutY="352.0" mnemonicParsing="false" onAction="#viewResponses" prefHeight="44.0" prefWidth="121.0" text="View All Responses" />
+            <Button fx:id="viewResponsesButton" disable="true" layoutX="416.0" layoutY="352.0" mnemonicParsing="false" onAction="#viewResponses" prefHeight="44.0" prefWidth="121.0" text="Save Response" />
+            <Button layoutX="3.0" layoutY="344.0" mnemonicParsing="false" onAction="#postNewQuestion" prefHeight="44.0" prefWidth="121.0" text="Post New Question" />
+            <Label alignment="TOP_LEFT" layoutX="9.0" layoutY="73.0" prefHeight="119.0" prefWidth="102.0" text="Note: Questions with more likes are quick sorted to the top. Every dislike counts as -1 like." textAlignment="CENTER" wrapText="true" />
+            <Button disable="true" layoutX="365.0" layoutY="193.0" mnemonicParsing="false" text="Txt" />
+            <TextField disable="true" layoutX="399.0" layoutY="186.0" prefHeight="40.0" prefWidth="176.0" promptText="Enter Response Title" visible="false" />
          </children></Pane>
       <Text fx:id="userOrPasNotFound" fill="#e90909" layoutX="235.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username not found" visible="false">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <TextArea fx:id="responseContent" editable="false" layoutX="376.0" layoutY="229.0" prefHeight="119.0" prefWidth="200.0" />
+      <TextArea fx:id="responseContent" editable="false" layoutX="376.0" layoutY="229.0" prefHeight="119.0" prefWidth="200.0" promptText="Enter A Response" />
     </children>
 </AnchorPane>

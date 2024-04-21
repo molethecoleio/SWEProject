@@ -79,6 +79,12 @@ public class signupController extends Controller {
             return false;
         }
 
+        if (usernameTxtField.getText().contains("admin") || usernameTxtField.getText().contains("Admin")) {
+            errorsTxt.setText("Username Cannot Contain The Word \"Admin\"");
+            errorsTxt.setFill(Paint.valueOf("Red"));
+            return false;
+        }
+
         if (passwordTxtField.getText().isEmpty()) {
             errorsTxt.setText("Password is Empty");
             errorsTxt.setFill(Paint.valueOf("Red"));

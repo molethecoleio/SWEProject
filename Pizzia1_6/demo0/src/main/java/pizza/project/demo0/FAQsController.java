@@ -42,6 +42,9 @@ public class FAQsController extends Controller implements Initializable {
     private Label welcomeUser;
 
     @FXML
+    private Label noteLabel;
+
+    @FXML
     private Button viewResponsesButton;
 
     @FXML
@@ -103,6 +106,7 @@ public class FAQsController extends Controller implements Initializable {
      */
     private void setupUI() {
         colorDisplayPane.setBackground(new Background(new BackgroundFill(getCurrentUser().getBGcolor(), CornerRadii.EMPTY, Insets.EMPTY)));
+        noteLabel.setTextFill(getCurrentUser().getFontcolor());
         responseTilte.setTextFill(getCurrentUser().getFontcolor());
         questionTitle.setTextFill(getCurrentUser().getFontcolor());
         welcomeUser.setTextFill(getCurrentUser().getFontcolor());
@@ -166,6 +170,11 @@ public class FAQsController extends Controller implements Initializable {
                 }
             }
         }
+    }
+
+    @FXML
+    void postNewQuestion(ActionEvent event) throws IOException {
+        toDefault(event, "QuestionMaker.fxml", "login Page");
     }
 
     @FXML

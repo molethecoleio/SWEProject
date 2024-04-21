@@ -21,14 +21,8 @@ public class Cards {
 
     public String getTitle(){
         String stringNum = String.valueOf(cardNumbers);
-        String num = "Starting With: " + stringNum.substring(0,4) + "*";
+        String num = stringNum.substring(0,4) + "*";
         return cardProvider +","+ num + ", Expres on: " + expMonth + "/" + expYear;
-    }
-
-    public String getFinalTitle(){
-        String stringNum = String.valueOf(cardNumbers);
-        String num = "Starting With: " + stringNum.substring(0,3) + "*";
-        return cardProvider +", "+ num;
     }
 
     public String getCardProvider() {

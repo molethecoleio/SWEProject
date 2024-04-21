@@ -13,9 +13,8 @@
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <ListView layoutX="39.0" layoutY="100.0" prefHeight="175.0" prefWidth="200.0" />
-      <ListView layoutX="341.0" layoutY="100.0" prefHeight="175.0" prefWidth="200.0" />
-      <Button fx:id="printButton" layoutX="264.0" layoutY="294.0" mnemonicParsing="false" text="PRINT" />
-      <Button fx:id="menuButton" layoutX="247.0" layoutY="337.0" mnemonicParsing="false" text="MAIN MENU" />
+      <ListView layoutX="139.0" layoutY="75.0" prefHeight="232.0" prefWidth="299.0" />
+      <Button layoutX="262.0" layoutY="319.0" mnemonicParsing="false" onAction="#makePdf" text="PRINT" />
+      <Button fx:id="menuButton" layoutX="245.0" layoutY="362.0" mnemonicParsing="false" text="MAIN MENU" />
    </children>
 </AnchorPane>

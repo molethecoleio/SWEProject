@@ -51,8 +51,8 @@ public class FinalizeOrderController extends Controller implements Initializable
             fillListWithTextFile(thePizza, theDrink);
         }
 
-        addressLabel.setText("Address: \n" + getCurrentAddress().getTitle().substring(0, getCurrentAddress().getTitle().indexOf(getCurrentAddress().getApartment()))+1);
-        cardLabel.setText("Card: \n" + getCurrentCard().getFinalTitle());
+        addressLabel.setText("Address: \n" + getCurrentAddress().getTitle());
+        cardLabel.setText("Card: \n" + getCurrentCard().getTitle());
         nameLabel.setText("Card Holders Name: \n" + getCurrentCard().getName());
     }
 

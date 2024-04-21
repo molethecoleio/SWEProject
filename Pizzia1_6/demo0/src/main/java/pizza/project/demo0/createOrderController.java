@@ -198,7 +198,7 @@ public class createOrderController extends Controller implements Initializable {
             pizzaSize = 1;
         }
         if(LargeRadio.isSelected()){
-            drinkSize = 2;
+            pizzaSize = 2;
         }
         if(exLPizzaRadio.isSelected()){
             pizzaSize = 3;
@@ -215,7 +215,7 @@ public class createOrderController extends Controller implements Initializable {
             pizzaSize = 1;
         }
         if(LargeRadio.isSelected()){
-            drinkSize = 2;
+            pizzaSize = 2;
         }
         if(exLPizzaRadio.isSelected()){
             pizzaSize = 3;
@@ -359,7 +359,7 @@ public class createOrderController extends Controller implements Initializable {
         //listView.getItems().add("Meat Lovers Pizza");
         System.out.println(pizzaSize);
         pizza currentPizza = pizza.createNewPizza((byte)pizzaSize, (byte)3, toppingsMeatLovers, pizzaLoader.readPizzaFromFile());
-        pizzaLoader.writePizzaToFile(currentPizza);
+        pizzaLoader.writePizzaToFile(currentPizza, 0);
 
         ArrayList<pizza> thePizza = pizzaLoader.readPizzaFromFile();
         ArrayList<drink> theDrink = readDrinkFromFile();
@@ -378,7 +378,7 @@ public class createOrderController extends Controller implements Initializable {
 
         //listView.getItems().add("Meat Lovers Pizza");
         pizza currentPizza = pizza.createNewPizza((byte)pizzaSize, (byte)3, toppingsMeatLovers, pizzaLoader.readPizzaFromFile());
-        pizzaLoader.writePizzaToFile(currentPizza);
+        pizzaLoader.writePizzaToFile(currentPizza, 0);
 
         ArrayList<pizza> thePizza = pizzaLoader.readPizzaFromFile();
         ArrayList<drink> theDrink = readDrinkFromFile();
